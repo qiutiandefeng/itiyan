@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.ModelTypeMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.ModelType">
+		<id column="modt_id" property="modtId" jdbcType="INTEGER" />
+		<result column="modt_modid" property="modtModid" jdbcType="INTEGER" />
+		<result column="modt_price" property="modtPrice" jdbcType="REAL" />
+		<result column="modt_repertory" property="modtRepertory"
+			jdbcType="INTEGER" />
+		<result column="modt_color" property="modtColor" jdbcType="VARCHAR" />
+		<result column="modt_color_desc" property="modtColorDesc"
+			jdbcType="VARCHAR" />
+		<result column="modt_img" property="modtImg" jdbcType="VARCHAR" />
+		<result column="modt_texture" property="modtTexture" jdbcType="VARCHAR" />
+		<result column="modt_size" property="modtSize" jdbcType="VARCHAR" />
+		<result column="modt_delstate" property="modtDelstate"
+			jdbcType="INTEGER" />
+		<result column="texture_id" property="textureId" jdbcType="INTEGER" />
+		<result column="textture_marker" property="texttureMarker"
+			jdbcType="VARCHAR" />
+		<result column="size_marker" property="sizeMarker" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		modt_id, modt_modid, modt_price, modt_repertory,
+		modt_color, modt_color_desc,
+		modt_img,
+		modt_texture, modt_size,
+		modt_delstate, texture_id, textture_marker, size_marker
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype
+		where modt_id = #{modtId,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		hs_modeltype
+		where modt_id = #{modtId,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yfhl.entity.ModelType">
+		insert into hs_modeltype
+		(modt_id, modt_modid, modt_price,
+		modt_repertory, modt_color,
+		modt_color_desc,
+		modt_img, modt_texture, modt_size,
+		modt_delstate,
+		texture_id, textture_marker,
+		size_marker)
+		values
+		(#{modtId,jdbcType=INTEGER}, #{modtModid,jdbcType=INTEGER},
+		#{modtPrice,jdbcType=REAL},
+		#{modtRepertory,jdbcType=INTEGER},
+		#{modtColor,jdbcType=VARCHAR}, #{modtColorDesc,jdbcType=VARCHAR},
+		#{modtImg,jdbcType=VARCHAR}, #{modtTexture,jdbcType=VARCHAR},
+		#{modtSize,jdbcType=VARCHAR},
+		#{modtDelstate,jdbcType=INTEGER},
+		#{textureId,jdbcType=INTEGER}, #{texttureMarker,jdbcType=VARCHAR},
+		#{sizeMarker,jdbcType=VARCHAR})
+	</insert>
+	<!-- luans:添加商品规格 -->
+	<insert id="insertSelective" parameterType="com.yfhl.entity.ModelType">
+		insert into hs_modeltype
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="modtId != null">
+				modt_id,
+			</if>
+			<if test="modtModid != null">
+				modt_modid,
+			</if>
+			<if test="modtPrice != null">
+				modt_price,
+			</if>
+			<if test="modtRepertory != null">
+				modt_repertory,
+			</if>
+			<if test="modtColor != null">
+				modt_color,
+			</if>
+			<if test="modtColorDesc != null">
+				modt_color_desc,
+			</if>
+			<if test="modtImg != null">
+				modt_img,
+			</if>
+			<if test="modtTexture != null">
+				modt_texture,
+			</if>
+			<if test="modtSize != null">
+				modt_size,
+			</if>
+			<if test="modtDelstate != null">
+				modt_delstate,
+			</if>
+			<if test="textureId != null">
+				texture_id,
+			</if>
+			<if test="texttureMarker != null">
+				textture_marker,
+			</if>
+			<if test="sizeMarker != null">
+				size_marker,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="modtId != null">
+				#{modtId,jdbcType=INTEGER},
+			</if>
+			<if test="modtModid != null">
+				#{modtModid,jdbcType=INTEGER},
+			</if>
+			<if test="modtPrice != null">
+				#{modtPrice,jdbcType=REAL},
+			</if>
+			<if test="modtRepertory != null">
+				#{modtRepertory,jdbcType=INTEGER},
+			</if>
+			<if test="modtColor != null">
+				#{modtColor,jdbcType=VARCHAR},
+			</if>
+			<if test="modtColorDesc != null">
+				#{modtColorDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="modtImg != null">
+				#{modtImg,jdbcType=VARCHAR},
+			</if>
+			<if test="modtTexture != null">
+				#{modtTexture,jdbcType=VARCHAR},
+			</if>
+			<if test="modtSize != null">
+				#{modtSize,jdbcType=VARCHAR},
+			</if>
+			<if test="modtDelstate != null">
+				#{modtDelstate,jdbcType=INTEGER},
+			</if>
+			<if test="textureId != null">
+				#{textureId,jdbcType=INTEGER},
+			</if>
+			<if test="texttureMarker != null">
+				#{texttureMarker,jdbcType=VARCHAR},
+			</if>
+			<if test="sizeMarker != null">
+				#{sizeMarker,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<!-- luans:修改商品规格信息 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.ModelType">
+		update hs_modeltype
+		<set>
+			<if test="modtModid != null">
+				modt_modid = #{modtModid,jdbcType=INTEGER},
+			</if>
+			<if test="modtPrice != null">
+				modt_price = #{modtPrice,jdbcType=REAL},
+			</if>
+			<if test="modtRepertory != null">
+				modt_repertory = #{modtRepertory,jdbcType=INTEGER},
+			</if>
+			<if test="modtColor != null">
+				modt_color = #{modtColor,jdbcType=VARCHAR},
+			</if>
+			<if test="modtColorDesc != null">
+				modt_color_desc = #{modtColorDesc,jdbcType=VARCHAR},
+			</if>
+			<if test="modtImg != null">
+				modt_img = #{modtImg,jdbcType=VARCHAR},
+			</if>
+			<if test="modtTexture != null">
+				modt_texture = #{modtTexture,jdbcType=VARCHAR},
+			</if>
+			<if test="modtSize != null">
+				modt_size = #{modtSize,jdbcType=VARCHAR},
+			</if>
+			<if test="modtDelstate != null">
+				modt_delstate = #{modtDelstate,jdbcType=INTEGER},
+			</if>
+			<if test="textureId != null">
+				texture_id = #{textureId,jdbcType=INTEGER},
+			</if>
+			<if test="texttureMarker != null">
+				textture_marker = #{texttureMarker,jdbcType=VARCHAR},
+			</if>
+			<if test="sizeMarker != null">
+				size_marker = #{sizeMarker,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where modt_id = #{modtId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.ModelType">
+		update
+		hs_modeltype
+		set modt_modid = #{modtModid,jdbcType=INTEGER},
+		modt_price
+		= #{modtPrice,jdbcType=REAL},
+		modt_repertory =
+		#{modtRepertory,jdbcType=INTEGER},
+		modt_color =
+		#{modtColor,jdbcType=VARCHAR},
+		modt_color_desc =
+		#{modtColorDesc,jdbcType=VARCHAR},
+		modt_img =
+		#{modtImg,jdbcType=VARCHAR},
+		modt_texture =
+		#{modtTexture,jdbcType=VARCHAR},
+		modt_size =
+		#{modtSize,jdbcType=VARCHAR},
+		modt_delstate =
+		#{modtDelstate,jdbcType=INTEGER},
+		texture_id =
+		#{textureId,jdbcType=INTEGER},
+		textture_marker =
+		#{texttureMarker,jdbcType=VARCHAR},
+		size_marker =
+		#{sizeMarker,jdbcType=VARCHAR}
+		where modt_id =
+		#{modtId,jdbcType=INTEGER}
+	</update>
+
+
+	<!-- luans:根据条件查询商品规格信息 -->
+	<select id="queryModelType" parameterType="com.yfhl.entity.ModelType"
+		resultMap="BaseResultMap">
+		select
+		mt.modt_id modtId,mt.modt_modid modtModid,mt.modt_price
+		modtPrice,mt.modt_repertory modtRepertory,
+		mt.modt_color
+		modtColor,mt.modt_color_desc modtColorDesc,mt.modt_size
+		modtSize,mt.modt_delstate modtDelstate,mt.texture_id textureId
+		,tt.title texttrueName,tt.img texttrueImg
+		from hs_modeltype mt,
+		hs_texture tt
+		where mt.texture_id=tt.tid
+		<if test="modtId!=null and modtId!=''">
+			mt.modt_id = #{modtId,jdbcType=INTEGER}
+		</if>
+		<if test="modtModid!=null and modtModid!=''">
+			and mt.modt_modid = #{modtModid,jdbcType=INTEGER}
+		</if>
+	</select>
+	<!-- luans:查询商品规格信息：根据商品ID(group by) -->
+	<select id="queryModelTypeBymid" parameterType="com.yfhl.entity.ModelType"
+		resultType="com.yfhl.entity.ModelType">
+		select
+		<if test="markSel==1">
+			modt_texture modtTexture,modt_img modtImg
+		</if>
+		<if test="markSel==2">
+			modt_size modtSize
+		</if>
+		from hs_modeltype where modt_modid = #{modtModid,jdbcType=INTEGER}
+		group by
+		<if test="markSel==1">
+			modt_texture
+		</if>
+		<if test="markSel==2">
+			modt_size
+		</if>
+	</select>
+	<!-- luans:根据商品规格信息查询商品规格详细信息：价格 -->
+	<select id="queryModelTypeByself" parameterType="com.yfhl.entity.ModelType"
+		resultType="com.yfhl.entity.ModelType">
+		select modt_price modtPrice,modt_repertory modtRepertory from
+		hs_modeltype WHERE modt_modid =
+		#{modtModid,jdbcType=INTEGER}
+
+		<if test="modtTexture!=null and modtTexture!=''">
+			AND modt_texture =
+			#{modtTexture,jdbcType=VARCHAR}
+		</if>
+
+		<if test="modtSize!=null and modtSize!=''">
+			AND modt_size =
+			#{modtSize,jdbcType=VARCHAR}
+		</if>
+	</select>
+	<!-- luans:根据购物车信息查询商品规格信息 -->
+	<select id="queryModelByModelShopping" parameterType="com.yfhl.entity.ModelShopping"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype where modt_modid=#{msModelid} and
+		modt_texture=#{msModtexture} and modt_size=#{msModsize} and
+		modt_repertory>=#{msModcount} and
+		modt_delstate=1
+	</select>
+	<!-- luans:根据订单详情数量判断商品规格中数量是否足够订单 -->
+	<select id="queryModelByTradeDetail" parameterType="com.yfhl.entity.TradeDetail"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype where modt_id=#{modeltypeId} and
+		modt_repertory>=#{qty} and
+		modt_delstate=1
+	</select>
+	<!-- luans:根据购物车信息查询商品规格ID -->
+	<select id="queryIDByModelShopping" parameterType="com.yfhl.entity.ModelShopping"
+		resultType="java.lang.Integer">
+		select modt_id
+		from hs_modeltype where
+		modt_modid=#{msModelid} and
+		modt_texture=#{msModtexture} and
+		modt_size=#{msModsize} and
+		modt_delstate=1
+	</select>
+	<!-- luans:根据商品ID外键，获取商品规格信息 -->
+	<select id="queryModelTypeBymodlid" parameterType="com.yfhl.entity.Model"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype where modt_modid=#{mid} and
+		modt_delstate=1
+	</select>
+	<!-- luans:根据商品ID外键，获取尺寸信息：用于修改商品信息是回显商品规格 -->
+	<select id="querySizeBymodlid" parameterType="com.yfhl.entity.Model"
+		resultType="com.yfhl.entity.ModelType">
+
+		select modt_size modtSize,size_marker sizeMarker from
+		hs_modeltype where
+		modt_modid=#{mid} and
+		modt_delstate=1 GROUP BY
+		modt_size
+	</select>
+	<!-- luans:根据商品ID外键，获取材质信息：用于修改商品信息是回显商品规格 -->
+	<select id="queryTexttureBymodlid" parameterType="com.yfhl.entity.Model"
+		resultType="com.yfhl.entity.ModelType">
+		select modt_texture modtTexture, modt_img
+		modtImg,textture_marker texttureMarker from hs_modeltype where
+		modt_modid=#{mid} and
+		modt_delstate=1 GROUP BY modt_texture
+	</select>
+	<!-- luans: -->
+	<delete id="delModelTypeByModid" parameterType="com.yfhl.entity.Model">
+		delete from
+		hs_modeltype
+		where modt_modid = #{mid,jdbcType=INTEGER}
+	</delete>
+	<!-- luans:订单生成成功后，修改modelType表中对应商品的商品数量 -->
+	<update id="updateModelTypeCount" parameterType="com.yfhl.entity.TradeDetail">
+		update hs_modeltype set
+		<if test="marker_changeNumber==1">
+			modt_repertory=modt_repertory+#{qty}
+		</if>
+		<if test="marker_changeNumber==2">
+			modt_repertory=modt_repertory-#{qty}
+		</if>
+		where modt_id=#{modeltypeId}
+	</update>
+	<!-- luans:根据订单详情中的modeltypeId和qty判断商品是否失效 -->
+	<select id="checkmodelUseBytdetail" parameterType="com.yfhl.entity.TradeDetail"
+		resultType="java.lang.Integer">
+		SELECT COUNT(modt_id) FROM hs_modeltype WHERE modt_id=#{modeltypeId} AND
+		modt_repertory>#{qty}
+	</select>
+	<select id="getModelTypeAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype
+	</select>
+	<!-- Chris li: 根据商品的编号获取所有的该商品的规格 -->
+	<select id="queryModelTypeListBymid" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.ModelType">
+		select
+		<include refid="Base_Column_List" />
+		from hs_modeltype
+		where modt_modid = #{modtModid,jdbcType=INTEGER}
+	</select>
+</mapper>

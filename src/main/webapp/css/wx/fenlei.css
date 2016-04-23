@@ -1,0 +1,60 @@
+*{margin:0;padding:0;}
+
+
+
+.heads{position:absolute;top:0px;left:0px;width:100%;z-index:100;}
+.head{position: relative;}
+
+.head img{float:right;height:18px;margin-right:15px;margin-top:11px}
+.head div{height:15px;width:15px;border-radius: 50%;background:#00DEBD;color:#fff;text-align: center;line-height: 15px;position: absolute;top:5px;right:10px}
+.head div span{font-size: 0.75rem;font-family: arial;}
+
+.head_head{text-align: center;height:40px;line-height: 40px;font-size: 1rem;font-family: "黑体";}
+
+
+.sousuo{height:40px;background:#F5F5F5;border-bottom: 2px solid #f1f1f1;margin-bottom: 10px;}
+.sousuo img{height:15px;margin-top:13px;float:left;margin-left:10px}
+.sousuo input{height:21px;width:70%;margin-top:10px;float:left;background:#F5F5F5;border:0;padding-left:10px;outline: none;}
+.sousuo .sousuo_img2{float:right;margin-right:10px;height:18px;width:18px}
+
+.choose{padding:0 5px;}
+.choose_div1{width:100%;height:auto;}
+.choose_div1 img{width:100%;}
+
+
+
+.choose_div2{float:left;width:49%;height:auto;}
+.choose_div2 img{width:100%;}
+
+
+
+
+.choose_div3{float:right;width:49%;height:auto;}
+.choose_div3 img{width:100%;}
+
+.choose_divs{position: relative;margin-top:1px;}
+.choose_divs .choose_divs_div1{position: absolute;top:0;left:0;width:100%;height:100%;}
+.choose_divs .choose_divs_div1 p{color:#fff}
+
+
+.choose_divs_div1_div1{float:left;width:50%;height:100%;padding-left:10px;font-family: arial ;}
+.choose_divs_div1_div1 p{width:100%;font-size: 0.8rem;}
+.choose_divs_div1_div2{float:right;margin-right:10px;margin-top:10px;padding:0 10px;line-height:14px;border-radius: 10px;background:#EDEDED;color:#aaa;font-size: 0.75rem;font-family: arial;}
+.choose_divs_div1_div1 .choose_divs_div1_div1_p1{margin-top:10px;opacity:0.8;font-size: 0.7rem;}
+.choose_divs_div1_div1_p2{font-family: "黑体";}
+
+
+.tianchong{height:50px;width:100%;background:;clear:both}
+.bottom{position: fixed;bottom:0;height:50px;width:100%;z-index:100;background:rgba(255,255,255,0.9)}
+.bottom div{width:33%;float:left;text-align: center;}
+.bottom .bottom_div2{height:65px;width:20%;margin-left:7%;margin-top:-14px;background:rgba(255,255,255,0.9);border-radius: 60px 60px 0 0;box-shadow:0px 2px 6px #ddd}
+.bottom .bottom_div3{}
+.bottom_div1 img{height:32px;margin-top:13px;float:right;margin-right:30px}
+.bottom_div2 img{height:42px;margin-top:16px}
+.bottom_div3 img{height:36px;margin-top:8px;float:left;margin-left:50px}
+
+
+
+
+
+

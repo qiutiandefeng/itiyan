@@ -1,0 +1,829 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.UserMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.User">
+		<id column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="username" property="username" jdbcType="VARCHAR" />
+		<result column="email" property="email" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="CHAR" />
+		<result column="pwd" property="pwd" jdbcType="CHAR" />
+		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+		<result column="sex" property="sex" jdbcType="INTEGER" />
+		<result column="job" property="job" jdbcType="VARCHAR" />
+		<result column="d_favorite_num" property="dFavoriteNum"
+			jdbcType="INTEGER" />
+		<result column="province" property="province" jdbcType="VARCHAR" />
+		<result column="city" property="city" jdbcType="VARCHAR" />
+		<result column="address" property="address" jdbcType="VARCHAR" />
+		<result column="zipcode" property="zipcode" jdbcType="VARCHAR" />
+		<result column="valid_email" property="validEmail" jdbcType="VARCHAR" />
+		<result column="reg_time" property="regTime" jdbcType="TIMESTAMP" />
+		<result column="group_id" property="groupId" jdbcType="INTEGER" />
+		<result column="d_tag" property="dTag" jdbcType="VARCHAR" />
+		<result column="studio_status" property="studioStatus"
+			jdbcType="INTEGER" />
+		<result column="apply_designer" property="applyDesigner"
+			jdbcType="INTEGER" />
+		<result column="apply_reason" property="applyReason" jdbcType="VARCHAR" />
+		<result column="weibo_id" property="weiboId" jdbcType="VARCHAR" />
+		<result column="qq_openid" property="qqOpenid" jdbcType="VARCHAR" />
+		<result column="wx_openid" property="wxOpenid" jdbcType="VARCHAR" />
+		<result column="wxp_openid" property="wxpOpenid" jdbcType="VARCHAR" />
+		<result column="wx_unionid" property="wxUnionid" jdbcType="VARCHAR" />
+		<result column="qq" property="qq" jdbcType="VARCHAR" />
+		<result column="weixin" property="weixin" jdbcType="VARCHAR" />
+		<result column="del_state" property="delState" jdbcType="INTEGER" />
+		<result column="d_username" property="dUsername" jdbcType="VARCHAR" />
+		<result column="d_brand" property="dBrand" jdbcType="VARCHAR" />
+		<result column="d_field" property="dField" jdbcType="VARCHAR" />
+		<result column="d_address" property="dAddress" jdbcType="VARCHAR" />
+		<result column="designer_time" property="designerTime"
+			jdbcType="TIMESTAMP" />
+		<result column="u_birth_year" property="uBirthYear" jdbcType="VARCHAR" />
+		<result column="u_birth_moth" property="uBirthMoth" jdbcType="VARCHAR" />
+		<result column="u_birth_day" property="uBirthDay" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.yfhl.entity.User"
+		extends="BaseResultMap">
+		<result column="introduce" property="introduce" jdbcType="LONGVARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		uid, username, email, phone, pwd, realname, avatar, sex,
+		job,
+		d_favorite_num, province,
+		city, address, zipcode, valid_email,
+		reg_time, group_id, d_tag,
+		studio_status, apply_designer,
+		apply_reason,
+		weibo_id, qq_openid, wx_openid, wxp_openid, wx_unionid, qq, weixin,
+		del_state, d_username, d_brand, d_field, d_address, designer_time,
+		u_birth_year,
+		u_birth_moth, u_birth_day
+	</sql>
+	<sql id="Blob_Column_List">
+		introduce
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from hs_user
+		where uid = #{uid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		hs_user
+		where uid = #{uid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yfhl.entity.User">
+		insert into hs_user (uid,
+		username, email,
+		phone, pwd, realname, avatar,
+		sex, job, d_favorite_num,
+		province, city, address,
+		zipcode, valid_email, reg_time,
+		group_id,
+		d_tag, studio_status,
+		apply_designer, apply_reason, weibo_id,
+		qq_openid, wx_openid, wxp_openid,
+		wx_unionid, qq, weixin,
+		del_state,
+		d_username, d_brand,
+		d_field, d_address, designer_time,
+		u_birth_year,
+		u_birth_moth, u_birth_day,
+		introduce)
+		values (#{uid,jdbcType=INTEGER},
+		#{username,jdbcType=VARCHAR},
+		#{email,jdbcType=VARCHAR},
+		#{phone,jdbcType=CHAR}, #{pwd,jdbcType=CHAR},
+		#{realname,jdbcType=VARCHAR},
+		#{avatar,jdbcType=VARCHAR},
+		#{sex,jdbcType=INTEGER}, #{job,jdbcType=VARCHAR},
+		#{dFavoriteNum,jdbcType=INTEGER},
+		#{province,jdbcType=VARCHAR},
+		#{city,jdbcType=VARCHAR},
+		#{address,jdbcType=VARCHAR},
+		#{zipcode,jdbcType=VARCHAR}, #{validEmail,jdbcType=VARCHAR},
+		#{regTime,jdbcType=TIMESTAMP},
+		#{groupId,jdbcType=INTEGER},
+		#{dTag,jdbcType=VARCHAR},
+		#{studioStatus,jdbcType=INTEGER},
+		#{applyDesigner,jdbcType=INTEGER}, #{applyReason,jdbcType=VARCHAR},
+		#{weiboId,jdbcType=VARCHAR},
+		#{qqOpenid,jdbcType=VARCHAR},
+		#{wxOpenid,jdbcType=VARCHAR},
+		#{wxpOpenid,jdbcType=VARCHAR},
+		#{wxUnionid,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR},
+		#{weixin,jdbcType=VARCHAR},
+		#{delState,jdbcType=INTEGER},
+		#{dUsername,jdbcType=VARCHAR},
+		#{dBrand,jdbcType=VARCHAR},
+		#{dField,jdbcType=VARCHAR}, #{dAddress,jdbcType=VARCHAR},
+		#{designerTime,jdbcType=TIMESTAMP},
+		#{uBirthYear,jdbcType=VARCHAR},
+		#{uBirthMoth,jdbcType=VARCHAR},
+		#{uBirthDay,jdbcType=VARCHAR},
+		#{introduce,jdbcType=LONGVARCHAR})
+	</insert>
+	<!-- luans:添加用户 -->
+	<insert id="insertSelective" parameterType="com.yfhl.entity.User"
+		useGeneratedKeys="true" keyProperty="uid">
+		insert into hs_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="username != null">
+				username,
+			</if>
+			<if test="email != null">
+				email,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="pwd != null">
+				pwd,
+			</if>
+			<if test="realname != null">
+				realname,
+			</if>
+			<if test="avatar != null">
+				avatar,
+			</if>
+			<if test="sex != null">
+				sex,
+			</if>
+			<if test="job != null">
+				job,
+			</if>
+			<if test="dFavoriteNum != null">
+				d_favorite_num,
+			</if>
+			<if test="province != null">
+				province,
+			</if>
+			<if test="city != null">
+				city,
+			</if>
+			<if test="address != null">
+				address,
+			</if>
+			<if test="zipcode != null">
+				zipcode,
+			</if>
+			<if test="validEmail != null">
+				valid_email,
+			</if>
+			<if test="regTime != null">
+				reg_time,
+			</if>
+			<if test="groupId != null">
+				group_id,
+			</if>
+			<if test="dTag != null">
+				d_tag,
+			</if>
+			<if test="studioStatus != null">
+				studio_status,
+			</if>
+			<if test="applyDesigner != null">
+				apply_designer,
+			</if>
+			<if test="applyReason != null">
+				apply_reason,
+			</if>
+			<if test="weiboId != null">
+				weibo_id,
+			</if>
+			<if test="qqOpenid != null">
+				qq_openid,
+			</if>
+			<if test="wxOpenid != null">
+				wx_openid,
+			</if>
+			<if test="wxpOpenid != null">
+				wxp_openid,
+			</if>
+			<if test="wxUnionid != null">
+				wx_unionid,
+			</if>
+			<if test="qq != null">
+				qq,
+			</if>
+			<if test="weixin != null">
+				weixin,
+			</if>
+			<if test="delState != null">
+				del_state,
+			</if>
+			<if test="dUsername != null">
+				d_username,
+			</if>
+			<if test="dBrand != null">
+				d_brand,
+			</if>
+			<if test="dField != null">
+				d_field,
+			</if>
+			<if test="dAddress != null">
+				d_address,
+			</if>
+			<if test="designerTime != null">
+				designer_time,
+			</if>
+			<if test="uBirthYear != null">
+				u_birth_year,
+			</if>
+			<if test="uBirthMoth != null">
+				u_birth_moth,
+			</if>
+			<if test="uBirthDay != null">
+				u_birth_day,
+			</if>
+			<if test="introduce != null">
+				introduce,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="uid != null">
+				#{uid,jdbcType=INTEGER},
+			</if>
+			<if test="username != null">
+				#{username,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=CHAR},
+			</if>
+			<if test="pwd != null">
+				#{pwd,jdbcType=CHAR},
+			</if>
+			<if test="realname != null">
+				#{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="avatar != null">
+				#{avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				#{sex,jdbcType=INTEGER},
+			</if>
+			<if test="job != null">
+				#{job,jdbcType=VARCHAR},
+			</if>
+			<if test="dFavoriteNum != null">
+				#{dFavoriteNum,jdbcType=INTEGER},
+			</if>
+			<if test="province != null">
+				#{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				#{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				#{address,jdbcType=VARCHAR},
+			</if>
+			<if test="zipcode != null">
+				#{zipcode,jdbcType=VARCHAR},
+			</if>
+			<if test="validEmail != null">
+				#{validEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="regTime != null">
+				#{regTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="groupId != null">
+				#{groupId,jdbcType=INTEGER},
+			</if>
+			<if test="dTag != null">
+				#{dTag,jdbcType=VARCHAR},
+			</if>
+			<if test="studioStatus != null">
+				#{studioStatus,jdbcType=INTEGER},
+			</if>
+			<if test="applyDesigner != null">
+				#{applyDesigner,jdbcType=INTEGER},
+			</if>
+			<if test="applyReason != null">
+				#{applyReason,jdbcType=VARCHAR},
+			</if>
+			<if test="weiboId != null">
+				#{weiboId,jdbcType=VARCHAR},
+			</if>
+			<if test="qqOpenid != null">
+				#{qqOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxOpenid != null">
+				#{wxOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxpOpenid != null">
+				#{wxpOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxUnionid != null">
+				#{wxUnionid,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				#{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="weixin != null">
+				#{weixin,jdbcType=VARCHAR},
+			</if>
+			<if test="delState != null">
+				#{delState,jdbcType=INTEGER},
+			</if>
+			<if test="dUsername != null">
+				#{dUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="dBrand != null">
+				#{dBrand,jdbcType=VARCHAR},
+			</if>
+			<if test="dField != null">
+				#{dField,jdbcType=VARCHAR},
+			</if>
+			<if test="dAddress != null">
+				#{dAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="designerTime != null">
+				#{designerTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="uBirthYear != null">
+				#{uBirthYear,jdbcType=VARCHAR},
+			</if>
+			<if test="uBirthMoth != null">
+				#{uBirthMoth,jdbcType=VARCHAR},
+			</if>
+			<if test="uBirthDay != null">
+				#{uBirthDay,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				#{introduce,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<!-- luans:修改用户信息 -->
+	<update id="userUpdate" parameterType="com.yfhl.entity.User">
+		update hs_user
+		<set>
+			<if test="username != null">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
+			<if test="email != null">
+				email = #{email,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=CHAR},
+			</if>
+			<if test="pwd != null">
+				pwd = #{pwd,jdbcType=CHAR},
+			</if>
+			<if test="realname != null">
+				realname = #{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="avatar != null">
+				avatar = #{avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="sex != null">
+				sex = #{sex,jdbcType=INTEGER},
+			</if>
+			<if test="job != null">
+				job = #{job,jdbcType=VARCHAR},
+			</if>
+			<if test="dFavoriteNum != null">
+				d_favorite_num = #{dFavoriteNum,jdbcType=INTEGER},
+			</if>
+			<if test="province != null">
+				province = #{province,jdbcType=VARCHAR},
+			</if>
+			<if test="city != null">
+				city = #{city,jdbcType=VARCHAR},
+			</if>
+			<if test="address != null">
+				address = #{address,jdbcType=VARCHAR},
+			</if>
+			<if test="zipcode != null">
+				zipcode = #{zipcode,jdbcType=VARCHAR},
+			</if>
+			<if test="validEmail != null">
+				valid_email = #{validEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="regTime != null">
+				reg_time = #{regTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="groupId != null">
+				group_id = #{groupId,jdbcType=INTEGER},
+			</if>
+			<if test="dTag != null">
+				d_tag = #{dTag,jdbcType=VARCHAR},
+			</if>
+			<if test="studioStatus != null">
+				studio_status = #{studioStatus,jdbcType=INTEGER},
+			</if>
+			<if test="applyDesigner != null">
+				apply_designer = #{applyDesigner,jdbcType=INTEGER},
+			</if>
+			<if test="applyReason != null">
+				apply_reason = #{applyReason,jdbcType=VARCHAR},
+			</if>
+			<if test="weiboId != null">
+				weibo_id = #{weiboId,jdbcType=VARCHAR},
+			</if>
+			<if test="qqOpenid != null">
+				qq_openid = #{qqOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxOpenid != null">
+				wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxpOpenid != null">
+				wxp_openid = #{wxpOpenid,jdbcType=VARCHAR},
+			</if>
+			<if test="wxUnionid != null">
+				wx_unionid = #{wxUnionid,jdbcType=VARCHAR},
+			</if>
+			<if test="qq != null">
+				qq = #{qq,jdbcType=VARCHAR},
+			</if>
+			<if test="weixin != null">
+				weixin = #{weixin,jdbcType=VARCHAR},
+			</if>
+			<if test="delState != null">
+				del_state = #{delState,jdbcType=INTEGER},
+			</if>
+			<if test="dUsername != null">
+				d_username = #{dUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="dBrand != null">
+				d_brand = #{dBrand,jdbcType=VARCHAR},
+			</if>
+			<if test="dField != null">
+				d_field = #{dField,jdbcType=VARCHAR},
+			</if>
+			<if test="dAddress != null">
+				d_address = #{dAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="designerTime != null">
+				designer_time = #{designerTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="uBirthYear != null">
+				u_birth_year = #{uBirthYear,jdbcType=VARCHAR},
+			</if>
+			<if test="uBirthMoth != null">
+				u_birth_moth = #{uBirthMoth,jdbcType=VARCHAR},
+			</if>
+			<if test="uBirthDay != null">
+				u_birth_day = #{uBirthDay,jdbcType=VARCHAR},
+			</if>
+			<if test="introduce != null">
+				introduce = #{introduce,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where uid = #{uid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yfhl.entity.User">
+		update
+		hs_user
+		set username = #{username,jdbcType=VARCHAR},
+		email =
+		#{email,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=CHAR},
+		pwd =
+		#{pwd,jdbcType=CHAR},
+		realname = #{realname,jdbcType=VARCHAR},
+		avatar =
+		#{avatar,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=INTEGER},
+		job =
+		#{job,jdbcType=VARCHAR},
+		d_favorite_num =
+		#{dFavoriteNum,jdbcType=INTEGER},
+		province =
+		#{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		address =
+		#{address,jdbcType=VARCHAR},
+		zipcode = #{zipcode,jdbcType=VARCHAR},
+		valid_email = #{validEmail,jdbcType=VARCHAR},
+		reg_time =
+		#{regTime,jdbcType=TIMESTAMP},
+		group_id = #{groupId,jdbcType=INTEGER},
+		d_tag = #{dTag,jdbcType=VARCHAR},
+		studio_status =
+		#{studioStatus,jdbcType=INTEGER},
+		apply_designer =
+		#{applyDesigner,jdbcType=INTEGER},
+		apply_reason =
+		#{applyReason,jdbcType=VARCHAR},
+		weibo_id =
+		#{weiboId,jdbcType=VARCHAR},
+		qq_openid = #{qqOpenid,jdbcType=VARCHAR},
+		wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+		wxp_openid =
+		#{wxpOpenid,jdbcType=VARCHAR},
+		wx_unionid =
+		#{wxUnionid,jdbcType=VARCHAR},
+		qq = #{qq,jdbcType=VARCHAR},
+		weixin =
+		#{weixin,jdbcType=VARCHAR},
+		del_state = #{delState,jdbcType=INTEGER},
+		d_username = #{dUsername,jdbcType=VARCHAR},
+		d_brand =
+		#{dBrand,jdbcType=VARCHAR},
+		d_field = #{dField,jdbcType=VARCHAR},
+		d_address = #{dAddress,jdbcType=VARCHAR},
+		designer_time =
+		#{designerTime,jdbcType=TIMESTAMP},
+		u_birth_year =
+		#{uBirthYear,jdbcType=VARCHAR},
+		u_birth_moth =
+		#{uBirthMoth,jdbcType=VARCHAR},
+		u_birth_day =
+		#{uBirthDay,jdbcType=VARCHAR},
+		introduce =
+		#{introduce,jdbcType=LONGVARCHAR}
+		where uid = #{uid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.User">
+		update hs_user
+		set
+		username = #{username,jdbcType=VARCHAR},
+		email =
+		#{email,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=CHAR},
+		pwd =
+		#{pwd,jdbcType=CHAR},
+		realname = #{realname,jdbcType=VARCHAR},
+		avatar =
+		#{avatar,jdbcType=VARCHAR},
+		sex = #{sex,jdbcType=INTEGER},
+		job =
+		#{job,jdbcType=VARCHAR},
+		d_favorite_num =
+		#{dFavoriteNum,jdbcType=INTEGER},
+		province =
+		#{province,jdbcType=VARCHAR},
+		city = #{city,jdbcType=VARCHAR},
+		address =
+		#{address,jdbcType=VARCHAR},
+		zipcode = #{zipcode,jdbcType=VARCHAR},
+		valid_email = #{validEmail,jdbcType=VARCHAR},
+		reg_time =
+		#{regTime,jdbcType=TIMESTAMP},
+		group_id = #{groupId,jdbcType=INTEGER},
+		d_tag = #{dTag,jdbcType=VARCHAR},
+		studio_status =
+		#{studioStatus,jdbcType=INTEGER},
+		apply_designer =
+		#{applyDesigner,jdbcType=INTEGER},
+		apply_reason =
+		#{applyReason,jdbcType=VARCHAR},
+		weibo_id =
+		#{weiboId,jdbcType=VARCHAR},
+		qq_openid = #{qqOpenid,jdbcType=VARCHAR},
+		wx_openid = #{wxOpenid,jdbcType=VARCHAR},
+		wxp_openid =
+		#{wxpOpenid,jdbcType=VARCHAR},
+		wx_unionid =
+		#{wxUnionid,jdbcType=VARCHAR},
+		qq = #{qq,jdbcType=VARCHAR},
+		weixin =
+		#{weixin,jdbcType=VARCHAR},
+		del_state = #{delState,jdbcType=INTEGER},
+		d_username = #{dUsername,jdbcType=VARCHAR},
+		d_brand =
+		#{dBrand,jdbcType=VARCHAR},
+		d_field = #{dField,jdbcType=VARCHAR},
+		d_address = #{dAddress,jdbcType=VARCHAR},
+		designer_time =
+		#{designerTime,jdbcType=TIMESTAMP},
+		u_birth_year =
+		#{uBirthYear,jdbcType=VARCHAR},
+		u_birth_moth =
+		#{uBirthMoth,jdbcType=VARCHAR},
+		u_birth_day =
+		#{uBirthDay,jdbcType=VARCHAR}
+		where uid = #{uid,jdbcType=INTEGER}
+	</update>
+
+	<!-- luans:用户管理List -->
+	<select id="queryList" resultMap="BaseResultMap" parameterType="com.yfhl.entity.User">
+		select uid ,username ,email ,phone ,realname ,city ,studio_status ,
+		group_id
+		from hs_user where group_id=${groupId}
+		order by uid asc
+
+	</select>
+
+	<!-- luans:用户管理List：分页 -->
+	<select id="queryListByPage" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.User">
+		select uid ,username ,email ,phone ,realname ,studio_status ,
+		group_id,d_brand,d_favorite_num ,d_tag,avatar,d_address dAddress,d_brand dBrand,wx_openid
+		from hs_user where group_id=${groupId} and
+		del_state=2
+		<if test="markUserfrom==2">
+			and (wx_openid IS NULL OR wx_openid='' )
+		</if>
+		<if test="markUserfrom==3">
+			AND wx_openid IS NOT NULL AND wx_openid!=''
+		</if>
+		<if test="condition!=null and condition!=''"> and (username LIKE
+			CONCAT("%",#{condition},"%") or email
+			LIKE
+			CONCAT("%",#{condition},"%") or phone LIKE
+			CONCAT("%",#{condition},"%")) </if>
+		order by
+		<if test="markOrder==1">
+			reg_time DESC
+		</if>
+		<if test="markOrder==2">
+			d_favorite_num DESC
+		</if>
+		<if test="markOrder!=1 and markOrder!=2 ">
+			uid desc
+		</if>
+
+	</select>
+	<!-- luans:用户管理：统计平台端和微信端的总数 -->
+	<select id="queryUserCount" resultType="com.yfhl.entity.User"
+		parameterType="com.yfhl.entity.User">
+		SELECT (SELECT COUNT(uid) FROM hs_user WHERE del_state=2
+		and
+		group_id=${groupId}) sumcount,
+		(SELECT COUNT(uid) FROM hs_user WHERE
+		del_state=2 and
+		group_id=${groupId} AND (wx_openid IS
+		NULL OR
+		wx_openid='' )) pCount,
+		(SELECT COUNT(uid) FROM hs_user WHERE
+		del_state=2 and
+		group_id=${groupId} AND wx_openid
+		IS NOT NULL AND
+		wx_openid!='' )
+		wCount
+		FROM DUAL
+	</select>
+	<!-- luans 查询用户：根据条件查询用户 -->
+	<select id="queryUser" resultMap="BaseResultMap" parameterType="com.yfhl.entity.User">
+		select
+		<include refid="Base_Column_List" />
+		from hs_user
+		where uid = #{uid}
+	</select>
+	<!-- luans 用户管理：删除用户，把用户状态改为删除状态 -->
+	<update id="userDel" parameterType="com.yfhl.entity.User">
+		UPDATE hs_user SET
+		`del_state`=1 WHERE `uid`=${uid}
+	</update>
+	<!-- luans 设计师审核通过 -->
+	<update id="densignerApplyPass" parameterType="com.yfhl.entity.User">
+		update hs_user set
+		studio_status=3,apply_designer=1,group_id=4 where
+		uid=#{uid}
+	</update>
+	<!-- luans 导出Excel：获取导出普通用户信息 -->
+	<select id="queryOutUser" parameterType="com.yfhl.entity.User"
+		resultMap="BaseResultMap">
+		select uid ,username ,email ,phone ,realname ,city ,studio_status ,
+		group_id,wx_openid
+		from hs_user where group_id=${groupId} and
+		del_state=2
+		<if test="markUserfrom==2">
+			and (wx_openid IS NULL OR wx_openid='' )
+		</if>
+		<if test="markUserfrom==3">
+			and wx_openid IS NOT NULL AND wx_openid!=''
+		</if>
+		order by uid desc
+	</select>
+	<!-- luans:修改设计师收藏数(通过设计师收藏表) -->
+	<update id="updateCollectionByd" parameterType="com.yfhl.entity.DesignerCollection">
+		update hs_user set
+		<if test="markType==1">
+			d_favorite_num=d_favorite_num+1
+		</if>
+		<if test="markType==2">
+			d_favorite_num=d_favorite_num-1
+		</if>
+		where uid= #{dcDesignerid}
+	</update>
+	<!-- luans:修改商品收藏数 -->
+	<update id="updateCollectionBym" parameterType="com.yfhl.entity.ModelCollection">
+		update hs_user set
+		<if test="markType==1">
+			d_favorite_num=d_favorite_num+1
+		</if>
+		<if test="markType==2">
+			d_favorite_num=d_favorite_num-1
+		</if>
+		where uid= #{mcDesignerid}
+	</update>
+	<!-- luans: -->
+	<select id="checkSameName" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(uid) from hs_user where email = #{username} or
+		phone =
+		#{username}
+	</select>
+
+	<!-- luans:查询设计师：PC端首页显示设计师 -->
+	<select id="queryDesigners" resultType="com.yfhl.entity.User">
+		select uid uid,username
+		username,avatar avatar
+		from hs_user where group_id=4 ORDER BY reg_time
+		limit 0,6
+	</select>
+	<!-- luans:查询设计师所有品牌 -->
+	<select id="queryBrand" parameterType="java.lang.String"
+		resultType="com.yfhl.entity.User">
+		select uid uid,username
+		username,d_brand dBrand from hs_user where
+		group_id=4
+		<if test="condition!='' and condition!=null">
+			and d_brand LIKE CONCAT("%",#{condition},"%")
+		</if>
+	</select>
+	 
+	<!-- Chris li:根据用户中的条件条件查询 -->
+	<select id="getSelectUser" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.User">
+		select uid ,username ,email ,phone ,realname ,city ,studio_status ,
+		group_id
+		from hs_user
+		<where>
+			<if test="username != null">
+				and username = #{username,jdbcType=VARCHAR}
+			</if>
+
+			<if test="pwd != null">
+				and pwd = #{pwd,jdbcType=CHAR}
+			</if>
+
+			<if test="groupId != null">
+				and group_id = #{groupId,jdbcType=TINYINT}
+			</if>
+
+		</where>
+	</select>
+	<!-- Chris li:根据用户的group，时间段来查询数量 -->
+	<select id="getCountUserByTime" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(uid) from hs_user
+		<where>
+			<if test="startTime != null and endTime != null">
+				reg_time between ${startTime} and ${endTime}
+			</if>
+		</where>
+	</select>
+	<!-- Chris li:根据设计师的group，时间段来查询数量 -->
+	<select id="getCountDesignerUserByTime" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(uid) from hs_user
+		<where>
+			<if test="startTime != null and endTime != null">
+				reg_time between ${startTime} and ${endTime}
+			</if>
+		</where>
+	</select>
+	<!-- Chris li : 根据用户的编号查询用户 -->
+	<select id="getUserByUid" parameterType="java.lang.Integer"
+		resultType="com.yfhl.entity.User">
+		select
+		<include refid="Base_Column_List" />
+		from hs_user
+		where uid = #{uid,jdbcType=INTEGER}
+
+	</select>
+	<!-- Chris li: 根据商品的Id查询设计师 -->
+	<select id="getAuthorByUId" parameterType="java.lang.Integer"
+		resultType="com.yfhl.entity.User">
+		select
+		<include refid="Base_Column_List" />
+		from hs_user
+		where uid = #{uid,jdbcType=INTEGER}
+
+	</select>
+	<!-- 根据登录用户名查询密码 -->
+	<select id="getPwdByName" parameterType="java.lang.String"
+		resultType="com.yfhl.entity.User">
+		select
+		<include refid="Base_Column_List" />
+		from hs_user where email = #{username} or phone = #{username} and
+		del_state=2 
+	</select>
+	<!-- chris li : 微信用户的openId查询 -->
+	<select id="getUserByopenId" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from hs_user
+		where wx_openid = #{wxOpenid,jdbcType=VARCHAR}
+	
+	</select>
+</mapper>

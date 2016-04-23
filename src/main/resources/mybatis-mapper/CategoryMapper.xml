@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.CategoryMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.Category">
+		<id column="category_id" property="categoryId" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="parent_id" property="parentId" jdbcType="INTEGER" />
+		<result column="cg_order" property="cgOrder" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		category_id, title, parent_id, cg_order
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from hs_category
+		where category_id = #{categoryId,jdbcType=INTEGER}
+	</select>
+	<!-- luans:删除商品类目 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		hs_category
+		where category_id = #{categoryId,jdbcType=INTEGER}
+	</delete>
+	<!-- luans:添加商品类别 -->
+	<insert id="insert" parameterType="com.yfhl.entity.Category">
+		insert into hs_category
+		(category_id, title, parent_id,
+		cg_order)
+		values
+		(#{categoryId,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+		#{parentId,jdbcType=INTEGER},
+		#{cgOrder,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="com.yfhl.entity.Category">
+		insert into hs_category
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="categoryId != null">
+				category_id,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="parentId != null">
+				parent_id,
+			</if>
+			<if test="cgOrder != null">
+				cg_order,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="categoryId != null">
+				#{categoryId,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="parentId != null">
+				#{parentId,jdbcType=INTEGER},
+			</if>
+			<if test="cgOrder != null">
+				#{cgOrder,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<!-- luans:修改商品类别信息 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Category">
+		update hs_category
+		<set>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="cgOrder != null">
+				cg_order = #{cgOrder,jdbcType=INTEGER},
+			</if>
+		</set>
+		where category_id = #{categoryId,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Category">
+		update hs_category
+		set title = #{title,jdbcType=VARCHAR},
+		parent_id =
+		#{parentId,jdbcType=INTEGER},
+		cg_order = #{cgOrder,jdbcType=INTEGER}
+		where category_id = #{categoryId,jdbcType=INTEGER}
+	</update>
+	<!-- luans:根据条件获取商品类别信息 -->
+	<select id="queryCategory" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.Category">
+		select category_id, title, parent_id, cg_order from hs_category where
+		parent_id=${parentId}
+		<if test="condition!=null and condition!=''">
+			and title LIKE
+			CONCAT("%",#{condition},"%")</if>
+		order by cg_order asc
+	</select>
+	<!-- luans:根据ID查询类别信息 -->
+	<select id="queryCategoryById" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select category_id, title, parent_id, cg_order from
+		hs_category where category_id=#{id}
+	</select>
+	<!-- luans: 计算商品类别在改类别下的顺序 -->
+	<select id="getOrder" parameterType="java.lang.Integer"
+		resultType="Integer">
+		select count(cg_order) from hs_category where
+		parent_id=#{id};
+	</select>
+	<!-- luans:改变目标位置的排列顺序 -->
+	<update id="moveOrdergoal" parameterType="com.yfhl.entity.Category">
+		update hs_category set
+		<if test="markMoveType==1">
+			cg_order=cg_order+1
+		</if>
+		<if test="markMoveType==2">
+			cg_order=cg_order-1
+		</if>
+		where parent_id=${parentId}
+		<if test="markMoveType==1">
+			and cg_order=${cgOrder-1}
+		</if>
+		<if test="markMoveType==2">
+			and cg_order=${cgOrder+1}
+		</if>
+
+	</update>
+	<!-- luans:改变位置顺序 -->
+	<update id="moveOrderTo" parameterType="com.yfhl.entity.Category">
+		update hs_category set
+		<if test="markMoveType==1">
+			cg_order=cg_order-1
+		</if>
+		<if test="markMoveType==2">
+			cg_order=cg_order+1
+		</if>
+		where category_id=${categoryId}
+	</update>
+	<!-- luans: 查询所有同一级别下排序在其后的商品类别ID -->
+	<select id="getMoveOrderId" parameterType="com.yfhl.entity.Category"
+		resultType="Integer">
+
+		select category_id from hs_category where
+		parent_id=${parentId} and
+		cg_order>${cgOrder}
+	</select>
+	<!-- luans:查询商品类别：PC端首页显示更多产品：最新添加的6个 -->
+	<select id="queryCategoryForIndex" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_category WHERE parent_id !=0 order by cg_order asc LIMIT 0,7 
+	</select>
+	<!-- Chris li : getModelCategoryAll：查出所有商品的分类 -->
+	<select id="getModelCategoryAll" resultMap="BaseResultMap" parameterType="com.yfhl.entity.Category">
+		select
+		<include refid="Base_Column_List" />
+		from hs_category
+		<if test="condition!=null and condition!=''">
+			where  title LIKE CONCAT("%",#{condition},"%")
+			 </if>
+			 
+		order by cg_order asc
+	</select>
+</mapper>

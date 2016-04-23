@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.ModelMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.Model">
+		<id column="mid" property="mid" jdbcType="INTEGER" />
+		<result column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="order_no" property="orderNo" jdbcType="INTEGER" />
+		<result column="price" property="price" jdbcType="REAL" />
+		<result column="multi_price" property="multiPrice" jdbcType="VARCHAR" />
+		<result column="category_id" property="categoryId" jdbcType="INTEGER" />
+		<result column="texture" property="texture" jdbcType="VARCHAR" />
+		<result column="size" property="size" jdbcType="VARCHAR" />
+		<result column="sales" property="sales" jdbcType="INTEGER" />
+		<result column="author" property="author" jdbcType="INTEGER" />
+		<result column="description" property="description" jdbcType="INTEGER" />
+		<result column="idea" property="idea" jdbcType="VARCHAR" />
+		<result column="favorite_num" property="favoriteNum" jdbcType="INTEGER" />
+		<result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+		<result column="recommend" property="recommend" jdbcType="INTEGER" />
+		<result column="img" property="img" jdbcType="VARCHAR" />
+		<result column="model_url" property="modelUrl" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+		<result column="brand" property="brand" jdbcType="VARCHAR" />
+		<result column="brand_place" property="brandPlace" jdbcType="VARCHAR" />
+		<result column="delivery_time" property="deliveryTime"
+			jdbcType="VARCHAR" />
+		<result column="customization" property="customization"
+			jdbcType="INTEGER" />
+		<result column="customization_tip" property="customizationTip"
+			jdbcType="VARCHAR" />
+		<result column="mod_category_parentId" property="modCategoryParentid"
+			jdbcType="INTEGER" />
+		<result column="mod_repertory" property="modRepertory"
+			jdbcType="INTEGER" />
+		<result column="mod_visitcount" property="modVisitcount"
+			jdbcType="INTEGER" />
+		<result column="mod_shoppingcount" property="modShoppingcount"
+			jdbcType="INTEGER" />
+		<result column="mod_lastupttime" property="modLastupttime"
+			jdbcType="TIMESTAMP" />
+		<result column="mod_tag" property="modTag" jdbcType="VARCHAR" />
+		<result column="mod_ddelstate" property="modDdelstate"
+			jdbcType="INTEGER" />
+		<result column="mod_serve" property="modServe" jdbcType="VARCHAR" />
+		<result column="mod_from" property="modFrom" jdbcType="VARCHAR" />
+		<result column="mod_element" property="modElement" jdbcType="VARCHAR" />
+		<result column="mod_size" property="modSize" jdbcType="VARCHAR" />
+		<result column="mod_remark" property="modRemark" jdbcType="VARCHAR" />
+		<result column="mod_weight" property="modWeight" jdbcType="VARCHAR" />
+		<result column="searchText" property="searchtext" jdbcType="LONGVARCHAR" />
+		<result column="mod_detail" property="modDetail" jdbcType="LONGVARCHAR" />
+		<result column="mod_self_designer" property="modSelfDesigner"
+			jdbcType="INTEGER" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		mid, uid, title, order_no, price, multi_price, category_id,
+		texture, size,
+		sales,
+		author, description, idea, favorite_num, add_time,
+		recommend, img, model_url,
+		status,
+		brand, brand_place, delivery_time,
+		customization, customization_tip,
+		mod_category_parentId,
+		mod_repertory,
+		mod_visitcount, mod_shoppingcount, mod_lastupttime, mod_tag,
+		mod_ddelstate,
+		mod_serve, mod_from, mod_element, mod_size, mod_remark,
+		mod_weight, mod_self_designer
+	</sql>
+	<sql id="Blob_Column_List">
+		searchText, mod_detail
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from hs_model
+		where mid = #{mid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		hs_model
+		where mid = #{mid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yfhl.entity.Model">
+		insert into hs_model (mid,
+		uid, title,
+		order_no, price, multi_price,
+		category_id, texture, size,
+		sales, author, description,
+		idea, favorite_num, add_time,
+		recommend,
+		img, model_url,
+		status, brand, brand_place,
+		delivery_time,
+		customization, customization_tip,
+		mod_category_parentId, mod_repertory,
+		mod_visitcount,
+		mod_shoppingcount, mod_lastupttime, mod_tag,
+		mod_ddelstate, mod_serve, mod_from,
+		mod_element, mod_size, mod_remark,
+		mod_weight, mod_self_designer, searchText,
+		mod_detail)
+		values
+		(#{mid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR},
+		#{orderNo,jdbcType=INTEGER},
+		#{price,jdbcType=REAL}, #{multiPrice,jdbcType=VARCHAR},
+		#{categoryId,jdbcType=INTEGER}, #{texture,jdbcType=VARCHAR},
+		#{size,jdbcType=VARCHAR},
+		#{sales,jdbcType=INTEGER},
+		#{author,jdbcType=INTEGER}, #{description,jdbcType=INTEGER},
+		#{idea,jdbcType=VARCHAR}, #{favoriteNum,jdbcType=INTEGER},
+		#{addTime,jdbcType=TIMESTAMP},
+		#{recommend,jdbcType=INTEGER},
+		#{img,jdbcType=VARCHAR}, #{modelUrl,jdbcType=VARCHAR},
+		#{status,jdbcType=INTEGER}, #{brand,jdbcType=VARCHAR},
+		#{brandPlace,jdbcType=VARCHAR},
+		#{deliveryTime,jdbcType=VARCHAR},
+		#{customization,jdbcType=INTEGER},
+		#{customizationTip,jdbcType=VARCHAR},
+		#{modCategoryParentid,jdbcType=INTEGER},
+		#{modRepertory,jdbcType=INTEGER}, #{modVisitcount,jdbcType=INTEGER},
+		#{modShoppingcount,jdbcType=INTEGER},
+		#{modLastupttime,jdbcType=TIMESTAMP}, #{modTag,jdbcType=VARCHAR},
+		#{modDdelstate,jdbcType=INTEGER}, #{modServe,jdbcType=VARCHAR},
+		#{modFrom,jdbcType=VARCHAR},
+		#{modElement,jdbcType=VARCHAR},
+		#{modSize,jdbcType=VARCHAR}, #{modRemark,jdbcType=VARCHAR},
+		#{modWeight,jdbcType=VARCHAR}, #{modSelfDesigner,jdbcType=INTEGER},
+		#{searchtext,jdbcType=LONGVARCHAR},
+		#{modDetail,jdbcType=LONGVARCHAR})
+	</insert>
+	<!-- luans:添加商品 -->
+	<insert id="insertSelective" parameterType="com.yfhl.entity.Model"
+		useGeneratedKeys="true" keyProperty="mid">
+		insert into hs_model
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="mid != null">
+				mid,
+			</if>
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="orderNo != null">
+				order_no,
+			</if>
+			<if test="price != null">
+				price,
+			</if>
+			<if test="multiPrice != null">
+				multi_price,
+			</if>
+			<if test="categoryId != null">
+				category_id,
+			</if>
+			<if test="texture != null">
+				texture,
+			</if>
+			<if test="size != null">
+				size,
+			</if>
+			<if test="sales != null">
+				sales,
+			</if>
+			<if test="author != null">
+				author,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="idea != null">
+				idea,
+			</if>
+			<if test="favoriteNum != null">
+				favorite_num,
+			</if>
+			<if test="addTime != null">
+				add_time,
+			</if>
+			<if test="recommend != null">
+				recommend,
+			</if>
+			<if test="img != null">
+				img,
+			</if>
+			<if test="modelUrl != null">
+				model_url,
+			</if>
+			<if test="status != null">
+				status,
+			</if>
+			<if test="brand != null">
+				brand,
+			</if>
+			<if test="brandPlace != null">
+				brand_place,
+			</if>
+			<if test="deliveryTime != null">
+				delivery_time,
+			</if>
+			<if test="customization != null">
+				customization,
+			</if>
+			<if test="customizationTip != null">
+				customization_tip,
+			</if>
+			<if test="modCategoryParentid != null">
+				mod_category_parentId,
+			</if>
+			<if test="modRepertory != null">
+				mod_repertory,
+			</if>
+			<if test="modVisitcount != null">
+				mod_visitcount,
+			</if>
+			<if test="modShoppingcount != null">
+				mod_shoppingcount,
+			</if>
+			<if test="modLastupttime != null">
+				mod_lastupttime,
+			</if>
+			<if test="modTag != null">
+				mod_tag,
+			</if>
+			<if test="modDdelstate != null">
+				mod_ddelstate,
+			</if>
+			<if test="modServe != null">
+				mod_serve,
+			</if>
+			<if test="modFrom != null">
+				mod_from,
+			</if>
+			<if test="modElement != null">
+				mod_element,
+			</if>
+			<if test="modSize != null">
+				mod_size,
+			</if>
+			<if test="modRemark != null">
+				mod_remark,
+			</if>
+			<if test="modWeight != null">
+				mod_weight,
+			</if>
+			<if test="modSelfDesigner != null">
+				mod_self_designer,
+			</if>
+			<if test="searchtext != null">
+				searchText,
+			</if>
+			<if test="modDetail != null">
+				mod_detail,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="mid != null">
+				#{mid,jdbcType=INTEGER},
+			</if>
+			<if test="uid != null">
+				#{uid,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="orderNo != null">
+				#{orderNo,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				#{price,jdbcType=REAL},
+			</if>
+			<if test="multiPrice != null">
+				#{multiPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="categoryId != null">
+				#{categoryId,jdbcType=INTEGER},
+			</if>
+			<if test="texture != null">
+				#{texture,jdbcType=VARCHAR},
+			</if>
+			<if test="size != null">
+				#{size,jdbcType=VARCHAR},
+			</if>
+			<if test="sales != null">
+				#{sales,jdbcType=INTEGER},
+			</if>
+			<if test="author != null">
+				#{author,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=INTEGER},
+			</if>
+			<if test="idea != null">
+				#{idea,jdbcType=VARCHAR},
+			</if>
+			<if test="favoriteNum != null">
+				#{favoriteNum,jdbcType=INTEGER},
+			</if>
+			<if test="addTime != null">
+				#{addTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="recommend != null">
+				#{recommend,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				#{img,jdbcType=VARCHAR},
+			</if>
+			<if test="modelUrl != null">
+				#{modelUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="brand != null">
+				#{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="brandPlace != null">
+				#{brandPlace,jdbcType=VARCHAR},
+			</if>
+			<if test="deliveryTime != null">
+				#{deliveryTime,jdbcType=VARCHAR},
+			</if>
+			<if test="customization != null">
+				#{customization,jdbcType=INTEGER},
+			</if>
+			<if test="customizationTip != null">
+				#{customizationTip,jdbcType=VARCHAR},
+			</if>
+			<if test="modCategoryParentid != null">
+				#{modCategoryParentid,jdbcType=INTEGER},
+			</if>
+			<if test="modRepertory != null">
+				#{modRepertory,jdbcType=INTEGER},
+			</if>
+			<if test="modVisitcount != null">
+				#{modVisitcount,jdbcType=INTEGER},
+			</if>
+			<if test="modShoppingcount != null">
+				#{modShoppingcount,jdbcType=INTEGER},
+			</if>
+			<if test="modLastupttime != null">
+				#{modLastupttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modTag != null">
+				#{modTag,jdbcType=VARCHAR},
+			</if>
+			<if test="modDdelstate != null">
+				#{modDdelstate,jdbcType=INTEGER},
+			</if>
+			<if test="modServe != null">
+				#{modServe,jdbcType=VARCHAR},
+			</if>
+			<if test="modFrom != null">
+				#{modFrom,jdbcType=VARCHAR},
+			</if>
+			<if test="modElement != null">
+				#{modElement,jdbcType=VARCHAR},
+			</if>
+			<if test="modSize != null">
+				#{modSize,jdbcType=VARCHAR},
+			</if>
+			<if test="modRemark != null">
+				#{modRemark,jdbcType=VARCHAR},
+			</if>
+			<if test="modWeight != null">
+				#{modWeight,jdbcType=VARCHAR},
+			</if>
+			<if test="modSelfDesigner != null">
+				#{modSelfDesigner,jdbcType=INTEGER},
+			</if>
+			<if test="searchtext != null">
+				#{searchtext,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="modDetail != null">
+				#{modDetail,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<!-- luans:修改商品 -->
+	<update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Model">
+		update hs_model
+		<set>
+			<if test="uid != null">
+				uid = #{uid,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="orderNo != null">
+				order_no = #{orderNo,jdbcType=INTEGER},
+			</if>
+			<if test="price != null">
+				price = #{price,jdbcType=REAL},
+			</if>
+			<if test="multiPrice != null">
+				multi_price = #{multiPrice,jdbcType=VARCHAR},
+			</if>
+			<if test="categoryId != null">
+				category_id = #{categoryId,jdbcType=INTEGER},
+			</if>
+			<if test="texture != null">
+				texture = #{texture,jdbcType=VARCHAR},
+			</if>
+			<if test="size != null">
+				size = #{size,jdbcType=VARCHAR},
+			</if>
+			<if test="sales != null">
+				sales = #{sales,jdbcType=INTEGER},
+			</if>
+			<if test="author != null">
+				author = #{author,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=INTEGER},
+			</if>
+			<if test="idea != null">
+				idea = #{idea,jdbcType=VARCHAR},
+			</if>
+			<if test="favoriteNum != null">
+				favorite_num = #{favoriteNum,jdbcType=INTEGER},
+			</if>
+			<if test="addTime != null">
+				add_time = #{addTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="recommend != null">
+				recommend = #{recommend,jdbcType=INTEGER},
+			</if>
+			<if test="img != null">
+				img = #{img,jdbcType=VARCHAR},
+			</if>
+			<if test="modelUrl != null">
+				model_url = #{modelUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="status != null">
+				status = #{status,jdbcType=INTEGER},
+			</if>
+			<if test="brand != null">
+				brand = #{brand,jdbcType=VARCHAR},
+			</if>
+			<if test="brandPlace != null">
+				brand_place = #{brandPlace,jdbcType=VARCHAR},
+			</if>
+			<if test="deliveryTime != null">
+				delivery_time = #{deliveryTime,jdbcType=VARCHAR},
+			</if>
+			<if test="customization != null">
+				customization = #{customization,jdbcType=INTEGER},
+			</if>
+			<if test="customizationTip != null">
+				customization_tip = #{customizationTip,jdbcType=VARCHAR},
+			</if>
+			<if test="modCategoryParentid != null">
+				mod_category_parentId =
+				#{modCategoryParentid,jdbcType=INTEGER},
+			</if>
+			<if test="modRepertory != null">
+				mod_repertory = #{modRepertory,jdbcType=INTEGER},
+			</if>
+			<if test="modVisitcount != null">
+				mod_visitcount = #{modVisitcount,jdbcType=INTEGER},
+			</if>
+			<if test="modShoppingcount != null">
+				mod_shoppingcount = #{modShoppingcount,jdbcType=INTEGER},
+			</if>
+			<if test="modLastupttime != null">
+				mod_lastupttime = #{modLastupttime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modTag != null">
+				mod_tag = #{modTag,jdbcType=VARCHAR},
+			</if>
+			<if test="modDdelstate != null">
+				mod_ddelstate = #{modDdelstate,jdbcType=INTEGER},
+			</if>
+			<if test="modServe != null">
+				mod_serve = #{modServe,jdbcType=VARCHAR},
+			</if>
+			<if test="modFrom != null">
+				mod_from = #{modFrom,jdbcType=VARCHAR},
+			</if>
+			<if test="modElement != null">
+				mod_element = #{modElement,jdbcType=VARCHAR},
+			</if>
+			<if test="modSize != null">
+				mod_size = #{modSize,jdbcType=VARCHAR},
+			</if>
+			<if test="modRemark != null">
+				mod_remark = #{modRemark,jdbcType=VARCHAR},
+			</if>
+			<if test="modWeight != null">
+				mod_weight = #{modWeight,jdbcType=VARCHAR},
+			</if>
+			<if test="modSelfDesigner != null">
+				mod_self_designer = #{modSelfDesigner,jdbcType=INTEGER},
+			</if>
+			<if test="searchtext != null">
+				searchText = #{searchtext,jdbcType=LONGVARCHAR},
+			</if>
+			<if test="modDetail != null">
+				mod_detail = #{modDetail,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where mid = #{mid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yfhl.entity.Model">
+		update
+		hs_model
+		set uid = #{uid,jdbcType=INTEGER},
+		title =
+		#{title,jdbcType=VARCHAR},
+		order_no = #{orderNo,jdbcType=INTEGER},
+		price = #{price,jdbcType=REAL},
+		multi_price =
+		#{multiPrice,jdbcType=VARCHAR},
+		category_id =
+		#{categoryId,jdbcType=INTEGER},
+		texture = #{texture,jdbcType=VARCHAR},
+		size = #{size,jdbcType=VARCHAR},
+		sales = #{sales,jdbcType=INTEGER},
+		author = #{author,jdbcType=INTEGER},
+		description =
+		#{description,jdbcType=INTEGER},
+		idea = #{idea,jdbcType=VARCHAR},
+		favorite_num = #{favoriteNum,jdbcType=INTEGER},
+		add_time =
+		#{addTime,jdbcType=TIMESTAMP},
+		recommend =
+		#{recommend,jdbcType=INTEGER},
+		img = #{img,jdbcType=VARCHAR},
+		model_url
+		= #{modelUrl,jdbcType=VARCHAR},
+		status = #{status,jdbcType=INTEGER},
+		brand = #{brand,jdbcType=VARCHAR},
+		brand_place =
+		#{brandPlace,jdbcType=VARCHAR},
+		delivery_time =
+		#{deliveryTime,jdbcType=VARCHAR},
+		customization =
+		#{customization,jdbcType=INTEGER},
+		customization_tip =
+		#{customizationTip,jdbcType=VARCHAR},
+		mod_category_parentId =
+		#{modCategoryParentid,jdbcType=INTEGER},
+		mod_repertory =
+		#{modRepertory,jdbcType=INTEGER},
+		mod_visitcount =
+		#{modVisitcount,jdbcType=INTEGER},
+		mod_shoppingcount =
+		#{modShoppingcount,jdbcType=INTEGER},
+		mod_lastupttime =
+		#{modLastupttime,jdbcType=TIMESTAMP},
+		mod_tag =
+		#{modTag,jdbcType=VARCHAR},
+		mod_ddelstate =
+		#{modDdelstate,jdbcType=INTEGER},
+		mod_serve =
+		#{modServe,jdbcType=VARCHAR},
+		mod_from = #{modFrom,jdbcType=VARCHAR},
+		mod_element = #{modElement,jdbcType=VARCHAR},
+		mod_size =
+		#{modSize,jdbcType=VARCHAR},
+		mod_remark =
+		#{modRemark,jdbcType=VARCHAR},
+		mod_weight =
+		#{modWeight,jdbcType=VARCHAR},
+		mod_self_designer =
+		#{modSelfDesigner,jdbcType=INTEGER},
+		searchText =
+		#{searchtext,jdbcType=LONGVARCHAR},
+		mod_detail =
+		#{modDetail,jdbcType=LONGVARCHAR}
+		where mid = #{mid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Model">
+		update hs_model
+		set uid = #{uid,jdbcType=INTEGER},
+		title = #{title,jdbcType=VARCHAR},
+		order_no = #{orderNo,jdbcType=INTEGER},
+		price = #{price,jdbcType=REAL},
+		multi_price = #{multiPrice,jdbcType=VARCHAR},
+		category_id =
+		#{categoryId,jdbcType=INTEGER},
+		texture = #{texture,jdbcType=VARCHAR},
+		size = #{size,jdbcType=VARCHAR},
+		sales = #{sales,jdbcType=INTEGER},
+		author = #{author,jdbcType=INTEGER},
+		description =
+		#{description,jdbcType=INTEGER},
+		idea = #{idea,jdbcType=VARCHAR},
+		favorite_num = #{favoriteNum,jdbcType=INTEGER},
+		add_time =
+		#{addTime,jdbcType=TIMESTAMP},
+		recommend =
+		#{recommend,jdbcType=INTEGER},
+		img = #{img,jdbcType=VARCHAR},
+		model_url
+		= #{modelUrl,jdbcType=VARCHAR},
+		status = #{status,jdbcType=INTEGER},
+		brand = #{brand,jdbcType=VARCHAR},
+		brand_place =
+		#{brandPlace,jdbcType=VARCHAR},
+		delivery_time =
+		#{deliveryTime,jdbcType=VARCHAR},
+		customization =
+		#{customization,jdbcType=INTEGER},
+		customization_tip =
+		#{customizationTip,jdbcType=VARCHAR},
+		mod_category_parentId =
+		#{modCategoryParentid,jdbcType=INTEGER},
+		mod_repertory =
+		#{modRepertory,jdbcType=INTEGER},
+		mod_visitcount =
+		#{modVisitcount,jdbcType=INTEGER},
+		mod_shoppingcount =
+		#{modShoppingcount,jdbcType=INTEGER},
+		mod_lastupttime =
+		#{modLastupttime,jdbcType=TIMESTAMP},
+		mod_tag =
+		#{modTag,jdbcType=VARCHAR},
+		mod_ddelstate =
+		#{modDdelstate,jdbcType=INTEGER},
+		mod_serve =
+		#{modServe,jdbcType=VARCHAR},
+		mod_from = #{modFrom,jdbcType=VARCHAR},
+		mod_element = #{modElement,jdbcType=VARCHAR},
+		mod_size =
+		#{modSize,jdbcType=VARCHAR},
+		mod_remark =
+		#{modRemark,jdbcType=VARCHAR},
+		mod_weight =
+		#{modWeight,jdbcType=VARCHAR}
+		where mid = #{mid,jdbcType=INTEGER}
+	</update>
+
+	<!-- luans:商品管理List：分页 -->
+	<select id="queryListByPage" resultType="com.yfhl.entity.Model"
+		parameterType="com.yfhl.entity.Model">
+		SELECT
+		m.mid MID,m.title title,d.username designerName,d.avatar
+		designerAvatar,m.brand
+		brand,c.title categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price price,m.img
+		img,m.favorite_num favoriteNum,d.d_favorite_num dFavoriteNum
+		FROM
+		hs_model m,
+		hs_user
+		d,hs_category c WHERE
+		m.author=d.uid AND
+		m.category_id=c.category_id and
+		m.mod_ddelstate=1
+		<if
+			test="condition_status!=-1 and condition_status!=0 and condition_status!='' and condition_status!=null">
+			and m.status=#{condition_status}
+		</if>
+		<if test="markCategory==1">
+			and m.mod_category_parentId=#{condition_categoryid}
+		</if>
+		<if test="markCategory==2">
+			and m.category_id=#{condition_categoryid}
+		</if>
+		<if test="beginprice!=null and beginprice!=null and beginprice!=-1">
+			and m.price >= ${beginprice}
+		</if>
+		<if test="endprice!=null and endprice!='' and  endprice!=-1">
+			and m.price &lt;= ${endprice}
+		</if>
+		<if test="markOrder==5">
+			and m.customization=1
+		</if>
+		<if test="modSelfDesigner==1">
+			and mod_self_designer=1
+		</if>
+		<if test="modSelfDesigner==2">
+			and mod_self_designer=2
+		</if>
+		<if test="condition!=null and condition!=''"> and (m.title LIKE
+			CONCAT("%",#{condition},"%") or
+			m.author=#{condition}
+			or m.brand=#{condition})
+		</if>
+		<if test="designerBrand!=null and designerBrand!=''"> and m.brand=#{designerBrand}
+		</if>
+		order by
+		<if test="markOrder==1">
+			m.add_time DESC
+		</if>
+		<if test="markOrder==2">
+			m.favorite_num DESC
+		</if>
+		<if test="markOrder==3">
+			m.price DESC
+		</if>
+		<if test="markOrder==4">
+			m.price asc
+		</if>
+		<if test="markOrder!=1 and markOrder!=2 and markOrder!=3 and markOrder!=4">
+			m.mid desc
+		</if>
+
+	</select>
+	<!-- luans:商品管理：根据条件查询商品信息 -->
+	<select id="queryModel" resultType="com.yfhl.entity.Model"
+		parameterType="com.yfhl.entity.Model">
+		SELECT m.mid mid, m.uid uid, m.title title, m.order_no orderNo,
+		m.price price, m.multi_price multiPrice, m.category_id categoryId,
+		m.texture texture,
+		m.size size, m.sales sales, m.author author,
+		m.description
+		description,
+		m.idea idea,
+		m.favorite_num favoriteNum,
+		m.add_time
+		addTime,
+		m.recommend recommend,
+		m.img img,m.model_url
+		modelUrl,
+		m.status
+		status,m.brand brand,
+		m.brand_place brandPlace,
+		m.delivery_time
+		deliveryTime, m.customization customization,
+		m.customization_tip
+		customizationTip,
+		m.mod_category_parentId
+		modCategoryParentid,
+		m.mod_repertory modRepertory,
+		m.mod_visitcount
+		modVisitcount,
+		m.mod_shoppingcount modShoppingcount, m.mod_lastupttime
+		modLastupttime,
+		m.mod_tag,searchText searchtext, m.mod_detail
+		modDetail,m.mod_serve modServe,m.mod_from modFrom,m.mod_element
+		modElement,m.mod_size modSize,m.mod_remark modRemark,m.mod_weight
+		modWeight,m.mod_self_designer modSelfDesigner,d.username
+		designerName,d.avatar
+		designerAvatar,apply_reason dbrandStory,c.title
+		categoryName
+		FROM
+		hs_model m,
+		hs_user d,hs_category c
+		WHERE m.author=d.uid
+		AND
+		m.category_id=c.category_id
+
+		<if test="mid!=null and mid!=''">
+			and m.mid=#{mid}
+		</if>
+	</select>
+	<!-- luans:删除商品：修改商品删除状态 -->
+	<update id="modelDel" parameterType="com.yfhl.entity.Model">
+		update hs_model set
+		mod_ddelstate=2 where mid = #{mid,jdbcType=INTEGER}
+	</update>
+	<!-- luans:获取导出Excel商品信息 -->
+	<select id="queryOutModel" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		SELECT
+		m.mid MID,m.title title,d.username designerName,m.brand
+		brand,c.title categoryName,m.mod_repertory modRepertory,
+		m.mod_visitcount modVisitcount,m.mod_shoppingcount modShoppingcount,
+		m.mod_lastupttime modLastupttime,m.recommend recommend,m.status
+		STATUS,m.author author,m.category_id categoryId,m.mod_detail modDetail
+		FROM hs_model m,
+		hs_user d,hs_category c WHERE m.author=d.uid AND
+		m.category_id=c.category_id and m.mod_ddelstate=1
+		<if test="status!=-1 and status!=0 and status!='' and status!=null">
+			and m.status=#{status}
+		</if>
+		<if test="markCategory==1">
+			and m.mod_category_parentId=#{categoryId}
+		</if>
+		<if test="markCategory==2">
+			and m.category_id=#{categoryId}
+		</if>
+		<if test="condition!=null and condition!=''"> and (m.title LIKE
+			CONCAT("%",#{condition},"%") or
+			m.author=#{condition}
+			or m.brand=#{condition})
+		</if>
+		order by m.mid asc
+	</select>
+	<!-- luans:修改商品收藏数 -->
+	<update id="updateCollection" parameterType="com.yfhl.entity.ModelCollection">
+
+		update hs_model set
+		<if test="markType==1">
+			favorite_num=favorite_num+1
+		</if>
+		<if test="markType==2">
+			favorite_num=favorite_num-1
+		</if>
+
+		where mid= #{mcModelid}
+	</update>
+	<!-- luans:查询爱体验推荐商品 -->
+	<select id="queryRecommend" resultType="com.yfhl.entity.Model">
+		SELECT m.mid MID,m.title
+		title,m.price price,d.username
+		designerName,d.avatar
+		designerAvatar,m.brand
+		brand,c.title
+		categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount
+		modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime
+		modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author
+		author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price
+		price,m.img img
+		FROM hs_model
+		m,
+		hs_user
+		d,hs_category c WHERE
+		m.author=d.uid AND
+		m.category_id=c.category_id AND
+		m.mod_ddelstate=1 AND
+		m.recommend=1
+		ORDER BY mod_lastupttime DESC
+		LIMIT
+		#{startIndex,jdbcType=INTEGER},#{endIndex,jdbcType=INTEGER}
+	</select>
+	<!-- luans:商品管理：设置推荐 -->
+	<update id="setRecommend" parameterType="com.yfhl.entity.Model">
+		update hs_model set
+		<if test="markRecommend==1">
+			recommend=1,
+		</if>
+		<if test="markRecommend==2">
+			recommend=2,
+		</if>
+		mod_lastupttime=#{modLastupttime}
+		where mid=#{mid,jdbcType=INTEGER}
+	</update>
+	<!-- luans:商品管理：一键取消所有推荐 -->
+	<update id="resetRecommend" parameterType="com.yfhl.entity.Model">
+		update hs_model set
+		recommend=2,mod_lastupttime=#{modLastupttime}
+	</update>
+	<!-- luans:查询商品信息（推荐商品为0时，查询新最新添加的商品） -->
+	<select id="queryModelforRecommend" parameterType="com.yfhl.entity.Model"
+		resultType="com.yfhl.entity.Model">
+		SELECT m.mid MID,m.title
+		title,m.price price,d.username
+		designerName,d.avatar
+		designerAvatar,d.d_brand designerBrand, m.brand
+		brand,c.title
+		categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount
+		modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime
+		modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author
+		author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price
+		price,m.img img
+		FROM hs_model
+		m,
+		hs_user
+		d,hs_category c
+		WHERE
+		m.author=d.uid AND
+		m.category_id=c.category_id AND
+		m.mod_ddelstate=1
+		ORDER BY add_time DESC
+		LIMIT
+		#{startIndex,jdbcType=INTEGER},#{endIndex,jdbcType=INTEGER}
+	</select>
+	<!-- luans:根据商品类别ID查询商品信息 :PC端首页更多产品（8件） -->
+	<select id="queryModelByCategory" parameterType="java.lang.Integer"
+		resultType="com.yfhl.entity.Model">
+		SELECT
+		m.mid MID,m.title title,d.username
+		designerName,d.avatar
+		designerAvatar,m.brand
+		brand,c.title
+		categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount
+		modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime
+		modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author
+		author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price
+		price,m.img
+		img,m.favorite_num favoriteNum,d.d_favorite_num
+		dFavoriteNum
+		FROM
+		hs_model m,
+		hs_user
+		d,hs_category c WHERE
+		m.author=d.uid
+		AND
+		m.category_id=c.category_id and
+		m.mod_ddelstate=1 and
+		m.category_id=#{categoryId} order by mid desc limit 0,8
+
+	</select>
+	<!-- luans: 选择商品页面信息 -->
+	<select id="queryModelsel" parameterType="java.lang.String"
+		resultType="com.yfhl.entity.Model">
+		SELECT m.mid mid,m.title title, m.brand brand,m.category_id categoryId
+		,cate.title categoryName FROM hs_model
+		m,hs_category cate WHERE
+		m.category_id=cate.category_id
+		<if test="condition!=null and condition!=''"> and (m.title LIKE
+			CONCAT("%",#{condition},"%")
+			or
+			m.brand=#{condition})
+		</if>
+	</select>
+	<!-- luans:根据商品ID集合查询商品信息 -->
+	<select id="queryModelByIDList" resultType="com.yfhl.entity.Model">
+		SELECT
+		m.mid MID,m.title title,d.username designerName,d.avatar
+		designerAvatar,m.brand
+		brand,c.title categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price price,m.img
+		img,m.favorite_num favoriteNum,d.d_favorite_num dFavoriteNum
+		FROM
+		hs_model m,
+		hs_user
+		d,hs_category c WHERE
+		m.author=d.uid AND
+		m.category_id=c.category_id and
+		m.mod_ddelstate=1
+		and m.mid in
+		<foreach collection="list" item="item" index="index" open="("
+			separator="," close=")">#{item}</foreach>
+		order by m.favorite_num DESC
+	</select>
+	<!-- luans: -->
+	<select id="queryModelBybrand" parameterType="java.lang.String"
+		resultType="com.yfhl.entity.Model">
+		SELECT
+		m.mid MID,m.title title,d.username
+		designerName,d.avatar
+		designerAvatar,m.brand
+		brand,c.title
+		categoryName,m.mod_repertory
+		modRepertory,
+		m.mod_visitcount
+		modVisitcount,m.mod_shoppingcount
+		modShoppingcount,
+		m.mod_lastupttime
+		modLastupttime,m.recommend
+		recommend,m.status
+		STATUS,m.author
+		author,m.category_id
+		categoryId,m.mod_detail
+		modDetail,m.price
+		price,m.img
+		img,m.favorite_num
+		favoriteNum,d.d_favorite_num
+		dFavoriteNum
+		FROM
+		hs_model m,
+		hs_user
+		d,hs_category c WHERE
+		m.author=d.uid
+		AND
+		m.category_id=c.category_id and
+		m.mod_ddelstate=1 and
+		m.brand=#{brand}
+		order by mid desc limit 0,4
+
+	</select>
+	<!-- luans:订单生成成功后，修改model表中对应商品的商品数量 -->
+	<update id="updateModelCount" parameterType="com.yfhl.entity.TradeDetail">
+		update hs_model set
+		<if test="marker_changeNumber==1">
+			mod_repertory=mod_repertory+#{qty},sales=sales-#{qty}
+		</if>
+		<if test="marker_changeNumber==2">
+			mod_repertory=mod_repertory-#{qty},sales=sales+#{qty}
+		</if>
+		where mid=#{id}
+	</update>
+	<!-- Chris li ： 根据模型的Id查询模型信息 -->
+	<select id="getModelBymId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model
+		where mid = #{mid,jdbcType=INTEGER}
+
+	</select>
+	<!-- chris 根据时间段的需求查询商品的增长数 -->
+	<select id="getCountModelByTime" resultType="java.lang.Integer"
+		parameterType="java.lang.String">
+		select count(mid) from hs_model
+		<where>
+			<if test="startTime != null and endTime != null">
+				add_time between ${startTime} and ${endTime}
+			</if>
+		</where>
+	</select>
+
+	<select id="getModelAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model
+	</select>
+
+	<!-- Chris li : getModelCategoryList :获取单个分类下的所有商品 -->
+	<select id="getModelCategoryList" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from hs_model
+		where category_id = #{categoryId,jdbcType=INTEGER}
+	</select>
+</mapper>

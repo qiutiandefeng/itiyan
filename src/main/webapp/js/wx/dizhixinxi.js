@@ -1,0 +1,10 @@
+$(function(){
+	$(".div5_img1").click(function(){
+		$(this).css({"display":"none"})
+		$(".div5_img2").css({"display":"block"})
+	})
+	$(".div5_img2").click(function(){
+		$(this).css({"display":"none"})
+		$(".div5_img1").css({"display":"block"})
+	})
+})

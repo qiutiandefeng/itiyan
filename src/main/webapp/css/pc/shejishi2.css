@@ -1,0 +1,50 @@
+.shejishi_big{width:100%;height:384px;overflow: hidden;}
+.shejishi_big img{width:100%;height:384px}
+
+.shengji2_div1{width:1200px;height:274px;margin:0 auto;margin-top:-60px;position: relative;}
+.shengji2_div1_img1{display:block;width:120px;height:120px;border-radius:50%;margin:0 auto;}
+.shengji2_div1_p1{text-align: center;height:34px;margin-top:16px;font-size: 22px;}
+.shengji2_div1_p2{text-align: center;height:21px;line-height:21px;width:55px;border:1px solid #00DEBD;border-radius:4px;color:#00DEBD;margin:0 auto;}
+.shengji2_div1_p3{text-align: center;height:41px;margin-top:7px;}
+.shengji2_div1_p4{text-align: center;}
+
+.fenxiang{position: absolute;top:70px;right:-10px;}
+.fenxiang span{float:left}
+.fenxiang a{float:left}
+.fenxiang_a1{display:block;width:18px;height:14px;background:url(../img/011.png);margin-right:10px}
+.fenxiang_a1:hover{background:url(../img/012.png)}
+.fenxiang_a2{display:block;width:18px;height:14px;background:url(../img/013.png);margin-right:10px}
+.fenxiang_a2:hover{background:url(../img/014.png)}
+.fenxiang_a3{display:block;width:18px;height:14px;background:url(../img/017.png);margin-right:10px}
+.fenxiang_a3:hover{background:url(../img/018.png)}
+
+
+.sheji_nav{width:1220px;margin:0 auto;height:60px;line-height:50px;padding-left:20px}
+.sheji_nav a{float:left}
+.sheji_nav .sheji_nav_a1{float:right;margin-right:20px}
+.sheji_nav_a2{color:#00DEBD}
+
+.sheji{width:1220px;margin:0 auto;padding-left:20px;margin-bottom: 100px;}
+.clearBoth{clear: both;}
+
+.sheji_dl{width:224px;height:310px;float:left;margin-right:20px;}
+.sheji_dl_dt{height:224px;position: relative;}
+.sheji_dl_dt img{width:224px;height:224px}
+.sheji_dl_dt_div1{width:210px;height:40px;position: absolute;bottom:7px;left:7px;background:#fff;display:none}
+.sheji_dl_dt_div1 div{float:left}
+.sheji_dl_dt_div1_div1{margin:10px;}
+.sheji_dl_dt_div1_div2{line-height: 40px;width:130px;}
+.sheji_dl_dt_div1_div3{line-height:40px;}
+.sheji_dl_dt_div1_div4{margin-top:15px;margin-left:5px}
+.sheji_dl_dt_div1 .sheji_dl_dt_div1_div1 img{width:20px;height:20px;border-radius: 50%;}
+.sheji_dl_dt_div1_div4_div1{display:block;width:16px;height:16px;background:url(/3dcreatia/images/pc/082.png) no-repeat}
+.sheji_dl_dt_div1_div4_div2{display:none;width:16px;height:16px;background:url(/3dcreatia/images/pc/081.png) no-repeat}
+.sheji_dl_dt_div1_div4_div3{width:16px;height:16px;background:url(/3dcreatia/images/pc/081.png) no-repeat}
+
+.sheji_dl_dd{text-align: center;margin-top:14px;font-size: 14px;}
+
+
+
+
+.sheji_bottom{width:100%;height:1px;background:#e7e7e7;}
+

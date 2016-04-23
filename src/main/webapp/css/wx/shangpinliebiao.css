@@ -1,0 +1,54 @@
+*{margin:0;padding:0;}
+a{text-decoration: none;color:#000;}
+ul{list-style: none;}
+body a{color:#000}
+.heads{position:absolute;top:0px;left:0px;width:100%;z-index:100;}
+.head{position: relative;}
+
+.head img{float:right;height:18px;margin-right:15px;margin-top:11px}
+.head .heads_img1{float:left;height:20px;margin-left:10px}
+.head div{height:15px;width:15px;border-radius: 50%;background:#00DEBD;color:#fff;text-align: center;line-height: 15px;position: absolute;top:5px;right:10px}
+.head div span{font-size: 0.75rem;font-family: arial;}
+
+.head_head{text-align: center;height:40px;line-height: 40px;font-size: 1rem;}
+
+.navs{clear: both;padding-left:5px;background: #F5F5F5;border-bottom:2px solid #f2f2f2;height:40px;line-height: 40px;font-size: 0.75rem;}
+.navs_div1{float:left;padding-left:5px;}
+.navs_div1 a{color:#888;margin-right:15px}
+.navs_div1 .blue_a1{color:#00DEBD}
+
+
+.list{clear:both;padding-top:10px;padding-right:10px;padding-left:5px}
+.list_div1{text-align: center;line-height: 30px;font-size: 8px;color:#aaa;}
+.list dl{float:left;width:50%;margin-top:10px;padding-left:5px;box-sizing: border-box;margin-bottom: 17px;}
+.list dl dt{width:100%;margin:0 auto;overflow: hidden;height:auto;position: relative;}
+.list dl dt img{width:100%;}
+.list dl dt .dt_div1{position: absolute;top:5px;right:10px;}
+.list dl dt .dt_div1 img{display: inline-block;height:8px;width: 10px;margin-right:3px}
+.list dl dt .dt_div1 span{display: inline-block;font-family: arial;font-size: 0.7rem;color:#aaa;}
+.list dl dd p{text-align: center;}
+.list dl dd .p1{color: #000;margin-top:7px;font-size:0.8rem;font-family: "黑体";}
+.list dl dd .p2{color:#000;margin-top:4px;font-size: 0.7rem;font-family: arial;}
+.list dl dd .p2 .spn1{color:#00DEBD;font-weight: 900;}
+.list dl dd .p2 .spn2{color:#a2a4a8;}
+
+.list .dlFive{clear: both;width:100%;}
+.list .dlFive dt{height:auto}
+
+.clearBoth{clear:both}
+
+.tianchong{height:50px;width:100%;background:;}
+.bottom{position: fixed;bottom:0;height:40px;width:100%;z-index:100;}
+
+.bottom .bottom_div2{height:100%;background:#F8F8F8; opacity:0.8;line-height: 40px;}
+.bottom .bottom_div2 a{display:block;float:left;width:33%;text-align: center;text-decoration: none;color:#000}
+.bottom .bottom_div2 a:focus{text-decoration: none;color:#3DE4CB;}
+.bottom .bottom_div2 .a1{color:#00DDBD}
+
+
+
+
+
+
+
+

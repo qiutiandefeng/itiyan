@@ -1,0 +1,75 @@
+.goalNav{height:53px;width:1224px;margin:0 auto;clear: both;padding-left:30px;background:;margin-top:17px}
+.goalNav a{display:inline-block}
+.goalNav a:hover{text-decoration:underline;}
+
+.show{width:1254px;margin:0 auto;background:;}
+.leftNav{width:168px;padding-left:30px;background:;float:left}
+.leftNav_a1{font-size: 14px;height:25px;}
+.leftNav .leftNav_ul1{width:198px;font-family:"微软雅黑";}
+.leftNav .leftNav_ul1 li{height:26px;overflow: hidden;}
+.leftNav .leftNav_ul1 li a{padding-left:28px}
+.leftNav .leftNav_ul1 li a:hover{color:#01DEBD}
+.leftNav .leftNav_ul1 li .img1{display:none;float:left;margin-top:12px;margin-left:3px}
+.leftNav .leftNav_ul1 li .img2{float:left;margin-top:15px}
+.leftNav .leftNav_ul1 li img{margin-right:10px}
+.leftNav .leftNav_ul1 .leftNav_ul1_li1{width:126px;border-bottom:1px dashed #ccc}
+.leftNav .leftNav_ul1 .twopx{margin-bottom:10px;font-size: 14px;line-height:34px}
+.leftNav .leftNav_ul1 .twopx span{display:inline-block;margin-left:5px}
+.leftNav .leftNav_ul1 .blue a{color:#01DEBD}
+.leftNav .leftNav_ul2{margin-top:17px;}
+.showright{width:1032px;background: ;}
+.showright .showright_nav{height:44px;position: relative;}
+.showright .showright_nav li{height:44px;float:left;margin-right:50px}
+.showright .showright_nav li a{padding:0 5px 5px;color:#888}
+.showright .showright_nav li a:hover{border-bottom:2px solid #ccc;color:#111}
+.showright .showright_nav .showright_nav_li1{float:right;margin-right:14px;color:#888}
+
+.showright .showright_nav ul{position:absolute;top:30px;left:115px;width:135px;background:;z-index: 10;display: none;}
+.showright .showright_nav ul li{height:41px;width:135px;background:#E8E8E8}
+.showright .showright_nav ul li a{display: block;margin:2px auto;background:#E8E8E8;line-height: 41px;color:#000}
+.showright .showright_nav ul li a:hover{border:0;background:#555;color:#fff;}
+.showright .showright_nav ul .showright_nav_ul1_li1{height:11px;background:#fff;}
+.showright .showright_nav ul .showright_nav_ul1_li1 img{margin-left:58px;}
+.showright .showright_nav li .showright_nav_moren{border-bottom:2px solid #ccc;color:#111}
+
+.showright_dl{float:left;width:242px;height:325px;margin:7px;margin-top:0;}
+.showright_dl dt{width:242px;height:242px;background:;position: relative;}
+.showright_dl dt img{width:242px;height:242px;}
+.showright_dl dt .layer{width:232px;height:39px;background: #fff;position: absolute;bottom:5px;left:5px;display:none}
+.showright_dl dt .layer div{float: left;}
+.showright_dl .layer .layer_img{width:21px;height:21px;border-radius: 50%;overflow:hidden;background:;margin:10px 0 0 10px}
+.showright_dl dt .layer .layer_img img{width:21px;height:21px;}
+.showright_dl dt .layer .layer_xin{width:12px;height:12px;background:;margin: 16px 0 5px 5px;}
+.showright_dl dt .layer .layer_xin .layer_xin_img1{display:block;width:16px;height:16px;background:url(../images/pc/082.png) no-repeat}
+.showright_dl dt .layer .layer_xin .layer_xin_img2{display:block;width:16px;height:16px;background:url(../images/pc/081.png) no-repeat}
+.showright_dl dt .layer .layer_xin .layer_xin_img3{display:none;width:16px;height:16px;background:url(../images/pc/081.png) no-repeat}
+.showright_dl dt .layer .layer_name{width:120px;font-size: 10px;margin:13px 0 0 10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.showright_dl dt .layer .layer_num{width:;font-size: 10px;margin-top:13px;margin-left:25px;text-align:right;}
+
+.showright_dl dd{width:244px;height:43px;line-height: 43px;text-align: center;font-size: 12px;position: relative;}
+.showright_dl dd span{float:left}
+.showright_dl dd .showright_dl_dd_sp1{display:inline-block;margin-left:15px;width:126px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size: 16px;}
+.showright_dl dd .showright_dl_dd_sp2{font-size: 16px;margin-left:5px}
+.showright_dl dd .new{position: absolute;top:-8px;right:10px;color:#01DEBD}
+
+.jump{height:125px;float: right;padding-right:50px}
+.jump li{float:left;margin:0 3px}
+.jump li a{display: block;height:24px;width:24px;text-align: center;line-height: 24px;}
+.jump li a:hover{display: block;height:24px;width:24px;background:#000;color:#fff}
+.jump .margintop_5px{margin-top:5px}
+.jump .margintop_2px{margin-top:2px}
+.jump .margintop_2px input{width:43px;height:22px}
+.jump .margintop_3px{margin-top:2px}
+.jump .margintop_3px button{width:33px;height:24px}
+
+
+
+
+
+
+
+
+
+
+
+

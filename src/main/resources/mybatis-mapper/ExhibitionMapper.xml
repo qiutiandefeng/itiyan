@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.ExhibitionMapper" >
+  <resultMap id="BaseResultMap" type="com.yfhl.entity.Exhibition" >
+    <id column="mid" property="mid" jdbcType="INTEGER" />
+    <result column="uid" property="uid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="author" property="author" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="idea" property="idea" jdbcType="VARCHAR" />
+    <result column="video_link" property="videoLink" jdbcType="VARCHAR" />
+    <result column="tag" property="tag" jdbcType="VARCHAR" />
+    <result column="favorite_num" property="favoriteNum" jdbcType="INTEGER" />
+    <result column="view_num" property="viewNum" jdbcType="INTEGER" />
+    <result column="comment_num" property="commentNum" jdbcType="INTEGER" />
+    <result column="add_time" property="addTime" jdbcType="TIMESTAMP" />
+    <result column="home_img" property="homeImg" jdbcType="VARCHAR" />
+    <result column="recommend" property="recommend" jdbcType="INTEGER" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="model_url" property="modelUrl" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yfhl.entity.Exhibition" extends="BaseResultMap" >
+    <result column="searchText" property="searchtext" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    mid, uid, title, category_id, author, description, idea, video_link, tag, favorite_num, 
+    view_num, comment_num, add_time, home_img, recommend, img, model_url, status
+  </sql>
+  <sql id="Blob_Column_List" >
+    searchText
+  </sql>
+  
+  <!-- chris 根据时间段的需求查询商品的增长数 -->
+  <select id="getCountExhibitionByTime" resultType="java.lang.Integer" parameterType="java.lang.String">
+  	select count(mid) from hs_exhibition
+		<where>
+			<if test="startTime != null and endTime != null">
+				add_time between ${startTime} and ${endTime}
+			</if>
+		</where>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hs_exhibition
+    where mid = #{mid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hs_exhibition
+    where mid = #{mid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yfhl.entity.Exhibition" >
+    insert into hs_exhibition (mid, uid, title, 
+      category_id, author, description, 
+      idea, video_link, tag, 
+      favorite_num, view_num, comment_num, 
+      add_time, home_img, recommend, 
+      img, model_url, status, 
+      searchText)
+    values (#{mid,jdbcType=INTEGER}, #{uid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{categoryId,jdbcType=INTEGER}, #{author,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{idea,jdbcType=VARCHAR}, #{videoLink,jdbcType=VARCHAR}, #{tag,jdbcType=VARCHAR}, 
+      #{favoriteNum,jdbcType=INTEGER}, #{viewNum,jdbcType=INTEGER}, #{commentNum,jdbcType=INTEGER}, 
+      #{addTime,jdbcType=TIMESTAMP}, #{homeImg,jdbcType=VARCHAR}, #{recommend,jdbcType=INTEGER}, 
+      #{img,jdbcType=VARCHAR}, #{modelUrl,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, 
+      #{searchtext,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yfhl.entity.Exhibition" >
+    insert into hs_exhibition
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="uid != null" >
+        uid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="idea != null" >
+        idea,
+      </if>
+      <if test="videoLink != null" >
+        video_link,
+      </if>
+      <if test="tag != null" >
+        tag,
+      </if>
+      <if test="favoriteNum != null" >
+        favorite_num,
+      </if>
+      <if test="viewNum != null" >
+        view_num,
+      </if>
+      <if test="commentNum != null" >
+        comment_num,
+      </if>
+      <if test="addTime != null" >
+        add_time,
+      </if>
+      <if test="homeImg != null" >
+        home_img,
+      </if>
+      <if test="recommend != null" >
+        recommend,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="modelUrl != null" >
+        model_url,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="searchtext != null" >
+        searchText,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mid != null" >
+        #{mid,jdbcType=INTEGER},
+      </if>
+      <if test="uid != null" >
+        #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="idea != null" >
+        #{idea,jdbcType=VARCHAR},
+      </if>
+      <if test="videoLink != null" >
+        #{videoLink,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="favoriteNum != null" >
+        #{favoriteNum,jdbcType=INTEGER},
+      </if>
+      <if test="viewNum != null" >
+        #{viewNum,jdbcType=INTEGER},
+      </if>
+      <if test="commentNum != null" >
+        #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeImg != null" >
+        #{homeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null" >
+        #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="modelUrl != null" >
+        #{modelUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="searchtext != null" >
+        #{searchtext,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Exhibition" >
+    update hs_exhibition
+    <set >
+      <if test="uid != null" >
+        uid = #{uid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="idea != null" >
+        idea = #{idea,jdbcType=VARCHAR},
+      </if>
+      <if test="videoLink != null" >
+        video_link = #{videoLink,jdbcType=VARCHAR},
+      </if>
+      <if test="tag != null" >
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+      <if test="favoriteNum != null" >
+        favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      </if>
+      <if test="viewNum != null" >
+        view_num = #{viewNum,jdbcType=INTEGER},
+      </if>
+      <if test="commentNum != null" >
+        comment_num = #{commentNum,jdbcType=INTEGER},
+      </if>
+      <if test="addTime != null" >
+        add_time = #{addTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="homeImg != null" >
+        home_img = #{homeImg,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null" >
+        recommend = #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="modelUrl != null" >
+        model_url = #{modelUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="searchtext != null" >
+        searchText = #{searchtext,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yfhl.entity.Exhibition" >
+    update hs_exhibition
+    set uid = #{uid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      author = #{author,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      idea = #{idea,jdbcType=VARCHAR},
+      video_link = #{videoLink,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      view_num = #{viewNum,jdbcType=INTEGER},
+      comment_num = #{commentNum,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      home_img = #{homeImg,jdbcType=VARCHAR},
+      recommend = #{recommend,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR},
+      model_url = #{modelUrl,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      searchText = #{searchtext,jdbcType=LONGVARCHAR}
+    where mid = #{mid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Exhibition" >
+    update hs_exhibition
+    set uid = #{uid,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      author = #{author,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      idea = #{idea,jdbcType=VARCHAR},
+      video_link = #{videoLink,jdbcType=VARCHAR},
+      tag = #{tag,jdbcType=VARCHAR},
+      favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      view_num = #{viewNum,jdbcType=INTEGER},
+      comment_num = #{commentNum,jdbcType=INTEGER},
+      add_time = #{addTime,jdbcType=TIMESTAMP},
+      home_img = #{homeImg,jdbcType=VARCHAR},
+      recommend = #{recommend,jdbcType=INTEGER},
+      img = #{img,jdbcType=VARCHAR},
+      model_url = #{modelUrl,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER}
+    where mid = #{mid,jdbcType=INTEGER}
+  </update>
+</mapper>

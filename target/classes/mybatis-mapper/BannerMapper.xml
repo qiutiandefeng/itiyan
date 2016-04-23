@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.BannerMapper" >
+  <resultMap id="BaseResultMap" type="com.yfhl.entity.Banner" >
+    <id column="bannerid" property="bannerid" jdbcType="INTEGER" />
+    <result column="ban_name" property="banName" jdbcType="VARCHAR" />
+    <result column="ban_order" property="banOrder" jdbcType="INTEGER" />
+    <result column="ban_station" property="banStation" jdbcType="INTEGER" />
+    <result column="ban_imgurl" property="banImgurl" jdbcType="VARCHAR" />
+    <result column="ban_addtime" property="banAddtime" jdbcType="TIMESTAMP" />
+    <result column="ban_state" property="banState" jdbcType="INTEGER" />
+    <result column="ban_newopen" property="banNewopen" jdbcType="INTEGER" />
+    <result column="ban_delete" property="banDelete" jdbcType="INTEGER" />
+    <result column="ban_modcount" property="banModcount" jdbcType="INTEGER" />
+    <result column="ban_urlpath" property="banUrlpath" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    bannerid, ban_name, ban_order, ban_station, ban_imgurl, ban_addtime, ban_state, ban_newopen, 
+    ban_delete, ban_modcount, ban_urlpath
+  </sql>
+  	<!-- luans:根据bannerid 查询banner详细信息 -->
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hs_banner
+    where bannerid = #{bannerid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hs_banner
+    where bannerid = #{bannerid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yfhl.entity.Banner" >
+    insert into hs_banner (bannerid, ban_name, ban_order, 
+      ban_station, ban_imgurl, ban_addtime, 
+      ban_state, ban_newopen, ban_delete, 
+      ban_modcount, ban_urlpath)
+    values (#{bannerid,jdbcType=INTEGER}, #{banName,jdbcType=VARCHAR}, #{banOrder,jdbcType=INTEGER}, 
+      #{banStation,jdbcType=INTEGER}, #{banImgurl,jdbcType=VARCHAR}, #{banAddtime,jdbcType=TIMESTAMP}, 
+      #{banState,jdbcType=INTEGER}, #{banNewopen,jdbcType=INTEGER}, #{banDelete,jdbcType=INTEGER}, 
+      #{banModcount,jdbcType=INTEGER}, #{banUrlpath,jdbcType=VARCHAR})
+  </insert>
+  <!-- luans:添加Banner -->
+  <insert id="insertSelective" parameterType="com.yfhl.entity.Banner" >
+    insert into hs_banner
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="bannerid != null" >
+        bannerid,
+      </if>
+      <if test="banName != null" >
+        ban_name,
+      </if>
+      <if test="banOrder != null" >
+        ban_order,
+      </if>
+      <if test="banStation != null" >
+        ban_station,
+      </if>
+      <if test="banImgurl != null" >
+        ban_imgurl,
+      </if>
+      <if test="banAddtime != null" >
+        ban_addtime,
+      </if>
+      <if test="banState != null" >
+        ban_state,
+      </if>
+      <if test="banNewopen != null" >
+        ban_newopen,
+      </if>
+      <if test="banDelete != null" >
+        ban_delete,
+      </if>
+      <if test="banModcount != null" >
+        ban_modcount,
+      </if>
+      <if test="banUrlpath != null" >
+        ban_urlpath,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="bannerid != null" >
+        #{bannerid,jdbcType=INTEGER},
+      </if>
+      <if test="banName != null" >
+        #{banName,jdbcType=VARCHAR},
+      </if>
+      <if test="banOrder != null" >
+        #{banOrder,jdbcType=INTEGER},
+      </if>
+      <if test="banStation != null" >
+        #{banStation,jdbcType=INTEGER},
+      </if>
+      <if test="banImgurl != null" >
+        #{banImgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="banAddtime != null" >
+        #{banAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="banState != null" >
+        #{banState,jdbcType=INTEGER},
+      </if>
+      <if test="banNewopen != null" >
+        #{banNewopen,jdbcType=INTEGER},
+      </if>
+      <if test="banDelete != null" >
+        #{banDelete,jdbcType=INTEGER},
+      </if>
+      <if test="banModcount != null" >
+        #{banModcount,jdbcType=INTEGER},
+      </if>
+      <if test="banUrlpath != null" >
+        #{banUrlpath,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <!-- luans:修改banner信息 -->
+  <update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Banner" >
+    update hs_banner
+    <set >
+      <if test="banName != null" >
+        ban_name = #{banName,jdbcType=VARCHAR},
+      </if>
+      <if test="banOrder != null" >
+        ban_order = #{banOrder,jdbcType=INTEGER},
+      </if>
+      <if test="banStation != null" >
+        ban_station = #{banStation,jdbcType=INTEGER},
+      </if>
+      <if test="banImgurl != null" >
+        ban_imgurl = #{banImgurl,jdbcType=VARCHAR},
+      </if>
+      <if test="banAddtime != null" >
+        ban_addtime = #{banAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="banState != null" >
+        ban_state = #{banState,jdbcType=INTEGER},
+      </if>
+      <if test="banNewopen != null" >
+        ban_newopen = #{banNewopen,jdbcType=INTEGER},
+      </if>
+      <if test="banDelete != null" >
+        ban_delete = #{banDelete,jdbcType=INTEGER},
+      </if>
+      <if test="banModcount != null" >
+        ban_modcount = #{banModcount,jdbcType=INTEGER},
+      </if>
+      <if test="banUrlpath != null" >
+        ban_urlpath = #{banUrlpath,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where bannerid = #{bannerid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Banner" >
+    update hs_banner
+    set ban_name = #{banName,jdbcType=VARCHAR},
+      ban_order = #{banOrder,jdbcType=INTEGER},
+      ban_station = #{banStation,jdbcType=INTEGER},
+      ban_imgurl = #{banImgurl,jdbcType=VARCHAR},
+      ban_addtime = #{banAddtime,jdbcType=TIMESTAMP},
+      ban_state = #{banState,jdbcType=INTEGER},
+      ban_newopen = #{banNewopen,jdbcType=INTEGER},
+      ban_delete = #{banDelete,jdbcType=INTEGER},
+      ban_modcount = #{banModcount,jdbcType=INTEGER},
+      ban_urlpath = #{banUrlpath,jdbcType=VARCHAR}
+    where bannerid = #{bannerid,jdbcType=INTEGER}
+  </update>
+  
+  <!-- luans:删除banner（假删除） -->
+	<update id="delBanner" parameterType="com.yfhl.entity.Banner">
+
+		update hs_banner set
+		ban_delete=2 where bannerid =
+		#{bannerid,jdbcType=INTEGER}
+	</update>
+	<!-- luans:banner管理List：分页 -->
+	<select id="queryListByPage" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.Banner">
+		select    <include refid="Base_Column_List" />
+		from hs_banner where ban_delete=1
+		<if test="banStation_sel!=null and  banStation_sel!=-1">
+			and ban_station =${banStation_sel}
+		</if>
+		<if test="condition!=null and condition!=''">
+			and ban_name like CONCAT("%",#{condition},"%")
+		</if>
+	</select>
+	<!-- luans:设置banner显示操作 -->
+	<update id="setBannerShow" parameterType="com.yfhl.entity.Banner">
+		update hs_banner set
+		ban_state =#{banState,jdbcType=INTEGER} where bannerid =
+		#{bannerid,jdbcType=INTEGER}
+
+	</update>
+	<!-- luans: 查询banner显示信息：PC端-->
+	<select id="queryBannerforPC" resultMap="BaseResultMap">
+	select    <include refid="Base_Column_List" />
+		from hs_banner where ban_delete=1 and ban_state=1 and ban_station=1 order by ban_order LIMIT 0,4
+	</select>
+	<!-- luans: 查询banner显示信息：微信端-->
+	<select id="queryBannerforWX" resultMap="BaseResultMap">
+	select    <include refid="Base_Column_List" />
+		from hs_banner where ban_delete=1 and ban_state=1 and ban_station=2 order by ban_order LIMIT 0,3
+	</select>
+</mapper>

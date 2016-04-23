@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.TextureMapper" >
+  <resultMap id="BaseResultMap" type="com.yfhl.entity.Texture" >
+    <id column="tid" property="tid" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="descr" property="descr" jdbcType="VARCHAR" />
+    <result column="img" property="img" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="REAL" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.yfhl.entity.Texture" extends="BaseResultMap" >
+    <result column="texture_color" property="textureColor" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tid, title, description, descr, img, price
+  </sql>
+  <sql id="Blob_Column_List" >
+    texture_color
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hs_texture
+    where tid = #{tid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hs_texture
+    where tid = #{tid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yfhl.entity.Texture" >
+    insert into hs_texture (tid, title, description, 
+      descr, img, price, texture_color
+      )
+    values (#{tid,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{descr,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{price,jdbcType=REAL}, #{textureColor,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yfhl.entity.Texture" >
+    insert into hs_texture
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        tid,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="descr != null" >
+        descr,
+      </if>
+      <if test="img != null" >
+        img,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="textureColor != null" >
+        texture_color,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tid != null" >
+        #{tid,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null" >
+        #{descr,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=REAL},
+      </if>
+      <if test="textureColor != null" >
+        #{textureColor,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Texture" >
+    update hs_texture
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="descr != null" >
+        descr = #{descr,jdbcType=VARCHAR},
+      </if>
+      <if test="img != null" >
+        img = #{img,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=REAL},
+      </if>
+      <if test="textureColor != null" >
+        texture_color = #{textureColor,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yfhl.entity.Texture" >
+    update hs_texture
+    set title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      descr = #{descr,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL},
+      texture_color = #{textureColor,jdbcType=LONGVARCHAR}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Texture" >
+    update hs_texture
+    set title = #{title,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      descr = #{descr,jdbcType=VARCHAR},
+      img = #{img,jdbcType=VARCHAR},
+      price = #{price,jdbcType=REAL}
+    where tid = #{tid,jdbcType=INTEGER}
+  </update>
+  
+<!--   <select id="getTextureListBy" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" > -->
+<!--     select  -->
+<!--     <include refid="Base_Column_List" /> -->
+<!--     , -->
+<!--     <include refid="Blob_Column_List" /> -->
+<!--     from hs_texture  -->
+<!--   </select> -->
+  <!-- 自己写的 -->
+  <select id="getTextureAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from hs_texture
+  </select>
+  
+</mapper>

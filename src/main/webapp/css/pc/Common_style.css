@@ -1,0 +1,72 @@
+*{margin:0;padding:0;}
+a{display:block;text-decoration:none;color:#000;}
+ul{list-style: none;}
+body{color:#000;font-size: 12px;font-family: "微软雅黑";}
+.left{float:left}
+.right{float:right}
+input{outline:none}
+
+.foot_div{width:1254px;margin:0 auto;}
+.foot{height:323px;background:#f2f2f2;padding-top:90px;clear: both;}
+.foot_top ul{width:170px;font-size:12px;margin-right:54px}
+.foot_top ul li{height:28px;}
+.foot_top ul .lastLi{font-size:14px}
+.foot_top ul li a{color:#888}
+.foot_top ul li a:hover{text-decoration:underline;color:#000;}
+.foot_ul_one{margin-left:28px}
+.foot_top .foot_ul_four{margin:0;margin-right:50px}
+.outside_border{width:234px;height:154px;border:2px solid #ccc;margin-left:65px;}
+.inside_border{width:221px;height:125px;border:3px solid #ccc;margin:3px;padding-top:16px;color:#888;font-size: 10px;}
+.inside_border p{text-align: center;height:18px}
+.inside_border .p1{font-size:14px;}
+.telephone{margin-top:10px;margin-left:110px;}
+
+.logincalss{position:fixed;top:0;left:0;height:100%;width:100%;background:rgba(0,0,0,0.5);display:none}
+
+.foot_bottom{clear: both;text-align: center;}
+.foot_bottom p{height:30px;padding-top:40px;color:#888}
+.head{width:1288px;margin:0 auto;}
+.head{height:28px;background:;line-height: 28px;}
+.head .shoopCar{height:19px;width:22px;background:url(../../images/pc/065.png) no-repeat;margin:0;margin-top:5px;margin-right:10px;position: relative;}
+.head .shoopCar:hover{background:url(../../images/pc/064.png) no-repeat  3px 0}
+.head .head_a1{margin-left:1124px;height:18px;width:18px;background:url(../../images/pc/069.png) no-repeat;margin-top:5px;}
+.head .head_a1:hover{background:url(../../images/pc/070.png) no-repeat}
+.head .shoopCar span{display: block;position: absolute;top:-5px;right:-5px;height:16px;width:16px;text-align: center;line-height: 16px;border-radius: 50%;background:#00DEBD;color:#fff;}
+.head a{margin:0 5px;}
+.head a:hover{text-decoration: underline;color:#00DEBD}
+
+.nav{width:1300px;margin:0 auto;}
+.nav{height:92px;background:;}
+.nav .nav_left{width:600px;margin-left:20px;}
+.nav .nav_left img{margin:0 0 0 26px;border:0;margin-top:-6px;}
+.nav_right{margin-top:12px;margin-left:37px;}
+.nav_right li{float:left;margin-right:47px;}
+.nav_right li a{display:block}
+
+
+.showright_nav_ulprice{position:absolute;left:-67px;z-index:100;width:162px;display:none}
+.showright_nav_ulprice .showright_nav_ul1_li1{margin:0;clear:both;width:168px;height:30px;}
+.showright_nav_ulprice .showright_nav_ul1_li2{margin:0;clear:both;width:168px;height:40px;background:#e8e8e8;}
+.showright_nav_ulprice .showright_nav_ul1_li2 a{display:block;margin:0;width:152px;margin:0 auto;height:40px;text-align:left;text-indent:13px;line-height:47px;background:url();background:#e8e8e8;font-family:"微软雅黑";color:#555;}
+.showright_nav_ulprice .showright_nav_ul1_li2 a:hover{background:url();background:#666666;color:#fff}
+.showright_nav_ulprice .showright_nav_ul1_li1 img{display:block;margin:0 auto;background:0;margin-top:18px;}
+
+.search{margin-top:33px;margin-left:14px}
+.search input{border:0;border-bottom: 1px solid #ccc;height:20px;}
+.search a{display:block;width:18px;height:20px;border-bottom: 1px solid #ccc;background:url(../../images/pc/001_11.png) no-repeat 1px 0px;}
+.search a:hover{background:url(../../images/pc/001_12.png) no-repeat ;}
+.nav_right_li4 a{width:36px;height:18px;background:url(../../images/pc/062.png) no-repeat;margin-top:33px;}
+.nav_right_li4 a:hover{background:url(../../images/pc/063.png) no-repeat;}
+.nav_right_li1 a{width:36px;height:18px;background:url(../../images/pc/056.png) no-repeat;margin-top:33px;}
+.nav_right_li1 a:hover{background:url(../../images/pc/057.jpg) no-repeat;}
+.nav_right_li2{position:relative;}
+.nav_right_li2 a{width:36px;height:18px;background:url(../../images/pc/058.png) no-repeat;margin-top:33px;}
+.nav_right_li2 a:hover{background:url(../../images/pc/059.png) no-repeat;}
+.nav_right_li3 a{width:92px;height:18px;background:url(../../images/pc/8.png) no-repeat;margin-top:33px;}
+.nav_right_li3 a:hover{background:url(background:url(../../images/pc/9.png) no-repeat;}
+
+
+
+.nav_bottom{height:1px;background:#ccc;width:100%}
+
+

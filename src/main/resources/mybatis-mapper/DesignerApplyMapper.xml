@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.DesignerApplyMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.DesignerApply">
+		<id column="id" property="id" jdbcType="INTEGER" />
+		<result column="realname" property="realname" jdbcType="VARCHAR" />
+		<result column="field" property="field" jdbcType="VARCHAR" />
+		<result column="phone" property="phone" jdbcType="CHAR" />
+		<result column="job" property="job" jdbcType="VARCHAR" />
+		<result column="apply_reason" property="applyReason" jdbcType="VARCHAR" />
+		<result column="uid" property="uid" jdbcType="INTEGER" />
+		<result column="applyd_dname" property="applydDname" jdbcType="VARCHAR" />
+		<result column="applyd_brand" property="applydBrand" jdbcType="VARCHAR" />
+		<result column="applyd_dtag" property="applydDtag" jdbcType="VARCHAR" />
+		<result column="applyd_address" property="applydAddress"
+			jdbcType="VARCHAR" />
+		<result column="applyd__username" property="applydUsername"
+			jdbcType="VARCHAR" />
+		<result column="applyd_avatar" property="applydAvatar"
+			jdbcType="VARCHAR" />
+		<result column="applyd_state" property="applydState" jdbcType="INTEGER" />
+		<result column="applyd_email" property="applydEmail" jdbcType="VARCHAR" />
+		<result column="applyd_sex" property="applydSex" jdbcType="INTEGER" />
+		<result column="applyd_time" property="applydTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs" type="com.yfhl.entity.DesignerApply"
+		extends="BaseResultMap">
+		<result column="works_img" property="worksImg" jdbcType="LONGVARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, realname, field, phone, job, apply_reason, uid, applyd_dname,
+		applyd_brand, applyd_dtag,
+		applyd_address, applyd__username, applyd_avatar, applyd_state, applyd_email,
+		applyd_sex,
+		applyd_time
+	</sql>
+	<sql id="Blob_Column_List">
+		works_img
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from hs_user_designer_apply
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from hs_user_designer_apply
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<!-- luans:添加设计师 -->
+	<insert id="insert" parameterType="com.yfhl.entity.DesignerApply"
+		useGeneratedKeys="true" keyProperty="uid">
+		insert into hs_user_designer_apply (id, realname, field,
+		phone, job, apply_reason,
+		uid, applyd_dname, applyd_brand,
+		applyd_dtag, applyd_address, applyd__username,
+		applyd_avatar, applyd_state, applyd_email,
+		applyd_sex, applyd_time, works_img
+		)
+		values (#{id,jdbcType=INTEGER}, #{realname,jdbcType=VARCHAR},
+		#{field,jdbcType=VARCHAR},
+		#{phone,jdbcType=CHAR}, #{job,jdbcType=VARCHAR}, #{applyReason,jdbcType=VARCHAR},
+		#{uid,jdbcType=INTEGER}, #{applydDname,jdbcType=VARCHAR},
+		#{applydBrand,jdbcType=VARCHAR},
+		#{applydDtag,jdbcType=VARCHAR}, #{applydAddress,jdbcType=VARCHAR},
+		#{applydUsername,jdbcType=VARCHAR},
+		#{applydAvatar,jdbcType=VARCHAR}, #{applydState,jdbcType=INTEGER}, #{applydEmail,jdbcType=VARCHAR},
+		#{applydSex,jdbcType=INTEGER}, #{applydTime,jdbcType=TIMESTAMP},
+		#{worksImg,jdbcType=LONGVARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective" parameterType="com.yfhl.entity.DesignerApply">
+		insert into hs_user_designer_apply
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="realname != null">
+				realname,
+			</if>
+			<if test="field != null">
+				field,
+			</if>
+			<if test="phone != null">
+				phone,
+			</if>
+			<if test="job != null">
+				job,
+			</if>
+			<if test="applyReason != null">
+				apply_reason,
+			</if>
+			<if test="uid != null">
+				uid,
+			</if>
+			<if test="applydDname != null">
+				applyd_dname,
+			</if>
+			<if test="applydBrand != null">
+				applyd_brand,
+			</if>
+			<if test="applydDtag != null">
+				applyd_dtag,
+			</if>
+			<if test="applydAddress != null">
+				applyd_address,
+			</if>
+			<if test="applydUsername != null">
+				applyd__username,
+			</if>
+			<if test="applydAvatar != null">
+				applyd_avatar,
+			</if>
+			<if test="applydState != null">
+				applyd_state,
+			</if>
+			<if test="applydEmail != null">
+				applyd_email,
+			</if>
+			<if test="applydSex != null">
+				applyd_sex,
+			</if>
+			<if test="applydTime != null">
+				applyd_time,
+			</if>
+			<if test="worksImg != null">
+				works_img,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="realname != null">
+				#{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="field != null">
+				#{field,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=CHAR},
+			</if>
+			<if test="job != null">
+				#{job,jdbcType=VARCHAR},
+			</if>
+			<if test="applyReason != null">
+				#{applyReason,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				#{uid,jdbcType=INTEGER},
+			</if>
+			<if test="applydDname != null">
+				#{applydDname,jdbcType=VARCHAR},
+			</if>
+			<if test="applydBrand != null">
+				#{applydBrand,jdbcType=VARCHAR},
+			</if>
+			<if test="applydDtag != null">
+				#{applydDtag,jdbcType=VARCHAR},
+			</if>
+			<if test="applydAddress != null">
+				#{applydAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="applydUsername != null">
+				#{applydUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="applydAvatar != null">
+				#{applydAvatar,jdbcType=VARCHAR},
+			</if>
+			<if test="applydState != null">
+				#{applydState,jdbcType=INTEGER},
+			</if>
+			<if test="applydEmail != null">
+				#{applydEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="applydSex != null">
+				#{applydSex,jdbcType=INTEGER},
+			</if>
+			<if test="applydTime != null">
+				#{applydTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="worksImg != null">
+				#{worksImg,jdbcType=LONGVARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.DesignerApply">
+		update hs_user_designer_apply
+		<set>
+			<if test="realname != null">
+				realname = #{realname,jdbcType=VARCHAR},
+			</if>
+			<if test="field != null">
+				field = #{field,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null">
+				phone = #{phone,jdbcType=CHAR},
+			</if>
+			<if test="job != null">
+				job = #{job,jdbcType=VARCHAR},
+			</if>
+			<if test="applyReason != null">
+				apply_reason = #{applyReason,jdbcType=VARCHAR},
+			</if>
+			<if test="uid != null">
+				uid = #{uid,jdbcType=INTEGER},
+			</if>
+			<if test="applydDname != null">
+				applyd_dname = #{applydDname,jdbcType=VARCHAR},
+			</if>
+			<if test="applydBrand != null">
+				applyd_brand = #{applydBrand,jdbcType=VARCHAR},
+			</if>
+			<if test="applydDtag != null">
+				applyd_dtag = #{applydDtag,jdbcType=VARCHAR},
+			</if>
+			<if test="applydAddress != null">
+				applyd_address = #{applydAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="applydUsername != null">
+				applyd__username = #{applydUsername,jdbcType=VARCHAR},
+			</if>
+			<if test="applydAvatar != null">
+				applyd_avatar = #{applydAvatar,jdbcType=VARCHAR},
+			</if>
+			<if test="applydState != null">
+				applyd_state = #{applydState,jdbcType=INTEGER},
+			</if>
+			<if test="applydEmail != null">
+				applyd_email = #{applydEmail,jdbcType=VARCHAR},
+			</if>
+			<if test="applydSex != null">
+				applyd_sex = #{applydSex,jdbcType=INTEGER},
+			</if>
+			<if test="applydTime != null">
+				applyd_time = #{applydTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="worksImg != null">
+				works_img = #{worksImg,jdbcType=LONGVARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.yfhl.entity.DesignerApply">
+		update hs_user_designer_apply
+		set realname = #{realname,jdbcType=VARCHAR},
+		field = #{field,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=CHAR},
+		job = #{job,jdbcType=VARCHAR},
+		apply_reason = #{applyReason,jdbcType=VARCHAR},
+		uid = #{uid,jdbcType=INTEGER},
+		applyd_dname = #{applydDname,jdbcType=VARCHAR},
+		applyd_brand = #{applydBrand,jdbcType=VARCHAR},
+		applyd_dtag = #{applydDtag,jdbcType=VARCHAR},
+		applyd_address = #{applydAddress,jdbcType=VARCHAR},
+		applyd__username = #{applydUsername,jdbcType=VARCHAR},
+		applyd_avatar = #{applydAvatar,jdbcType=VARCHAR},
+		applyd_state = #{applydState,jdbcType=INTEGER},
+		applyd_email = #{applydEmail,jdbcType=VARCHAR},
+		applyd_sex = #{applydSex,jdbcType=INTEGER},
+		applyd_time = #{applydTime,jdbcType=TIMESTAMP},
+		works_img = #{worksImg,jdbcType=LONGVARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.DesignerApply">
+		update hs_user_designer_apply
+		set realname = #{realname,jdbcType=VARCHAR},
+		field = #{field,jdbcType=VARCHAR},
+		phone = #{phone,jdbcType=CHAR},
+		job = #{job,jdbcType=VARCHAR},
+		apply_reason = #{applyReason,jdbcType=VARCHAR},
+		uid = #{uid,jdbcType=INTEGER},
+		applyd_dname = #{applydDname,jdbcType=VARCHAR},
+		applyd_brand = #{applydBrand,jdbcType=VARCHAR},
+		applyd_dtag = #{applydDtag,jdbcType=VARCHAR},
+		applyd_address = #{applydAddress,jdbcType=VARCHAR},
+		applyd__username = #{applydUsername,jdbcType=VARCHAR},
+		applyd_avatar = #{applydAvatar,jdbcType=VARCHAR},
+		applyd_state = #{applydState,jdbcType=INTEGER},
+		applyd_email = #{applydEmail,jdbcType=VARCHAR},
+		applyd_sex = #{applydSex,jdbcType=INTEGER},
+		applyd_time = #{applydTime,jdbcType=TIMESTAMP}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<!-- luans:设计师申请List：分页 -->
+	<select id="queryListByPage" resultMap="BaseResultMap"
+		parameterType="com.yfhl.entity.DesignerApply">
+		select 
+		<include refid="Base_Column_List" />
+
+		from hs_user_designer_apply where applyd_state=1
+		<if test="condition!=null and condition!=''"> and (applyd_dname LIKE
+			CONCAT("%",#{condition},"%") or
+			applyd_email
+			LIKE
+			CONCAT("%",#{condition},"%") or phone LIKE
+			CONCAT("%",#{condition},"%")) </if>
+		order by id desc
+
+	</select>
+	<!-- luans:条件查询设计师 -->
+	<select id="queryDesigner" resultMap="BaseResultMap" parameterType="com.yfhl.entity.DesignerApply">
+		select
+		<include refid="Base_Column_List" />
+		from hs_user_designer_apply
+		where  id = #{id}
+
+	</select>
+	<!-- luans:设计师管理：审核 -->
+	<update id="checkDensignerApply"  parameterType="com.yfhl.entity.DesignerApply">
+	 update hs_user_designer_apply set applyd_state=${applydState} where id=#{id}
+	</update>
+</mapper>

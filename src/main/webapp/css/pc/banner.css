@@ -1,0 +1,13 @@
+.banner{width:100%;height:600px;position: relative;}
+.textLest{position: absolute;bottom:-40px;left:50px}
+.textLest li{height:50px;width:290px;border:1px solid #ccc;float:left;margin:0 5px;background:#fff;font-size:18px;text-align: center;line-height:50px ;color:#ccc}
+.square{position: absolute;bottom:-70px;left:50px;height:30px;
+}
+.square li{display:block;float:left;height:4px;width:290px;background: #ccc;margin:0 6px;border-radius:0 0 10px 10px}
+.imgLest{width:100%;height:600px;position: relative;}
+.imgLest li{position: absolute;width:100%;height:600px;display:none}
+.imgLest li img{position: absolute;width:100%;height:600px;}
+.imgLest .imgOn{display:block}
+.textLest .textOn{display:block;color:#01DEBD;border:1px solid #01DEBD}
+.square .squareOn{background:#01DEBD}
+.banner_div1{width:1300px;margin:0 auto;position: relative;}

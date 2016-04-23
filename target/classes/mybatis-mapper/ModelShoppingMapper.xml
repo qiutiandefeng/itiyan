@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.ModelShoppingMapper">
+	 <resultMap id="BaseResultMap" type="com.yfhl.entity.ModelShopping" >
+    <id column="ms_id" property="msId" jdbcType="INTEGER" />
+    <result column="ms_modelid" property="msModelid" jdbcType="INTEGER" />
+    <result column="ms_modelname" property="msModelname" jdbcType="VARCHAR" />
+    <result column="ms_modelbrand" property="msModelbrand" jdbcType="VARCHAR" />
+    <result column="ms_modelimg" property="msModelimg" jdbcType="VARCHAR" />
+    <result column="ms_modtexture" property="msModtexture" jdbcType="VARCHAR" />
+    <result column="ms_modcolor" property="msModcolor" jdbcType="VARCHAR" />
+    <result column="ms_modsize" property="msModsize" jdbcType="VARCHAR" />
+    <result column="ms_modcount" property="msModcount" jdbcType="INTEGER" />
+    <result column="ms_modprice" property="msModprice" jdbcType="REAL" />
+    <result column="ms_modtransport" property="msModtransport" jdbcType="REAL" />
+    <result column="ms_uid" property="msUid" jdbcType="INTEGER" />
+    <result column="ms_addtime" property="msAddtime" jdbcType="TIMESTAMP" />
+    <result column="ms_self_designer" property="msSelfDesigner" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ms_id, ms_modelid, ms_modelname, ms_modelbrand, ms_modelimg, ms_modtexture, ms_modcolor, 
+    ms_modsize, ms_modcount, ms_modprice, ms_modtransport, ms_uid, ms_addtime, ms_self_designer
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hs_model_shopping
+    where ms_id = #{msId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hs_model_shopping
+    where ms_id = #{msId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yfhl.entity.ModelShopping" >
+    insert into hs_model_shopping (ms_id, ms_modelid, ms_modelname, 
+      ms_modelbrand, ms_modelimg, ms_modtexture, 
+      ms_modcolor, ms_modsize, ms_modcount, 
+      ms_modprice, ms_modtransport, ms_uid, 
+      ms_addtime, ms_self_designer)
+    values (#{msId,jdbcType=INTEGER}, #{msModelid,jdbcType=INTEGER}, #{msModelname,jdbcType=VARCHAR}, 
+      #{msModelbrand,jdbcType=VARCHAR}, #{msModelimg,jdbcType=VARCHAR}, #{msModtexture,jdbcType=VARCHAR}, 
+      #{msModcolor,jdbcType=VARCHAR}, #{msModsize,jdbcType=VARCHAR}, #{msModcount,jdbcType=INTEGER}, 
+      #{msModprice,jdbcType=REAL}, #{msModtransport,jdbcType=REAL}, #{msUid,jdbcType=INTEGER}, 
+      #{msAddtime,jdbcType=TIMESTAMP}, #{msSelfDesigner,jdbcType=INTEGER})
+  </insert>
+ <!-- luans:添加购物车 -->
+	<insert id="insertSelective" parameterType="com.yfhl.entity.ModelShopping"
+		useGeneratedKeys="true" keyProperty="msId">
+    insert into hs_model_shopping
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="msId != null" >
+        ms_id,
+      </if>
+      <if test="msModelid != null" >
+        ms_modelid,
+      </if>
+      <if test="msModelname != null" >
+        ms_modelname,
+      </if>
+      <if test="msModelbrand != null" >
+        ms_modelbrand,
+      </if>
+      <if test="msModelimg != null" >
+        ms_modelimg,
+      </if>
+      <if test="msModtexture != null" >
+        ms_modtexture,
+      </if>
+      <if test="msModcolor != null" >
+        ms_modcolor,
+      </if>
+      <if test="msModsize != null" >
+        ms_modsize,
+      </if>
+      <if test="msModcount != null" >
+        ms_modcount,
+      </if>
+      <if test="msModprice != null" >
+        ms_modprice,
+      </if>
+      <if test="msModtransport != null" >
+        ms_modtransport,
+      </if>
+      <if test="msUid != null" >
+        ms_uid,
+      </if>
+      <if test="msAddtime != null" >
+        ms_addtime,
+      </if>
+      <if test="msSelfDesigner != null" >
+        ms_self_designer,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="msId != null" >
+        #{msId,jdbcType=INTEGER},
+      </if>
+      <if test="msModelid != null" >
+        #{msModelid,jdbcType=INTEGER},
+      </if>
+      <if test="msModelname != null" >
+        #{msModelname,jdbcType=VARCHAR},
+      </if>
+      <if test="msModelbrand != null" >
+        #{msModelbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="msModelimg != null" >
+        #{msModelimg,jdbcType=VARCHAR},
+      </if>
+      <if test="msModtexture != null" >
+        #{msModtexture,jdbcType=VARCHAR},
+      </if>
+      <if test="msModcolor != null" >
+        #{msModcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="msModsize != null" >
+        #{msModsize,jdbcType=VARCHAR},
+      </if>
+      <if test="msModcount != null" >
+        #{msModcount,jdbcType=INTEGER},
+      </if>
+      <if test="msModprice != null" >
+        #{msModprice,jdbcType=REAL},
+      </if>
+      <if test="msModtransport != null" >
+        #{msModtransport,jdbcType=REAL},
+      </if>
+      <if test="msUid != null" >
+        #{msUid,jdbcType=INTEGER},
+      </if>
+      <if test="msAddtime != null" >
+        #{msAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msSelfDesigner != null" >
+        #{msSelfDesigner,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.ModelShopping" >
+    update hs_model_shopping
+    <set >
+      <if test="msModelid != null" >
+        ms_modelid = #{msModelid,jdbcType=INTEGER},
+      </if>
+      <if test="msModelname != null" >
+        ms_modelname = #{msModelname,jdbcType=VARCHAR},
+      </if>
+      <if test="msModelbrand != null" >
+        ms_modelbrand = #{msModelbrand,jdbcType=VARCHAR},
+      </if>
+      <if test="msModelimg != null" >
+        ms_modelimg = #{msModelimg,jdbcType=VARCHAR},
+      </if>
+      <if test="msModtexture != null" >
+        ms_modtexture = #{msModtexture,jdbcType=VARCHAR},
+      </if>
+      <if test="msModcolor != null" >
+        ms_modcolor = #{msModcolor,jdbcType=VARCHAR},
+      </if>
+      <if test="msModsize != null" >
+        ms_modsize = #{msModsize,jdbcType=VARCHAR},
+      </if>
+      <if test="msModcount != null" >
+        ms_modcount = #{msModcount,jdbcType=INTEGER},
+      </if>
+      <if test="msModprice != null" >
+        ms_modprice = #{msModprice,jdbcType=REAL},
+      </if>
+      <if test="msModtransport != null" >
+        ms_modtransport = #{msModtransport,jdbcType=REAL},
+      </if>
+      <if test="msUid != null" >
+        ms_uid = #{msUid,jdbcType=INTEGER},
+      </if>
+      <if test="msAddtime != null" >
+        ms_addtime = #{msAddtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="msSelfDesigner != null" >
+        ms_self_designer = #{msSelfDesigner,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ms_id = #{msId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yfhl.entity.ModelShopping" >
+    update hs_model_shopping
+    set ms_modelid = #{msModelid,jdbcType=INTEGER},
+      ms_modelname = #{msModelname,jdbcType=VARCHAR},
+      ms_modelbrand = #{msModelbrand,jdbcType=VARCHAR},
+      ms_modelimg = #{msModelimg,jdbcType=VARCHAR},
+      ms_modtexture = #{msModtexture,jdbcType=VARCHAR},
+      ms_modcolor = #{msModcolor,jdbcType=VARCHAR},
+      ms_modsize = #{msModsize,jdbcType=VARCHAR},
+      ms_modcount = #{msModcount,jdbcType=INTEGER},
+      ms_modprice = #{msModprice,jdbcType=REAL},
+      ms_modtransport = #{msModtransport,jdbcType=REAL},
+      ms_uid = #{msUid,jdbcType=INTEGER},
+      ms_addtime = #{msAddtime,jdbcType=TIMESTAMP},
+      ms_self_designer = #{msSelfDesigner,jdbcType=INTEGER}
+    where ms_id = #{msId,jdbcType=INTEGER}
+  </update>
+
+	<!-- luans:若是存在相同的购物车信息，只是数量增加 -->
+	<update id="updateShopping" parameterType="com.yfhl.entity.ModelShopping">
+		update
+		hs_model_shopping
+		set
+		ms_modcount=ms_modcount+#{msModcount,jdbcType=INTEGER},
+		ms_addtime=
+		#{msAddtime,jdbcType=TIMESTAMP},
+		ms_modprice =
+		#{msModprice,jdbcType=REAL}
+		where
+		ms_modelid=#{msModelid,jdbcType=INTEGER} and
+		ms_modelname=#{msModelname,jdbcType=VARCHAR} and
+		ms_modelbrand=#{msModelbrand,jdbcType=VARCHAR} and
+		ms_modtexture
+		=#{msModtexture,jdbcType=VARCHAR} and
+		ms_modsize=#{msModsize,jdbcType=VARCHAR}
+		and
+		ms_uid=${msUid}
+	</update>
+	<!-- luans:根据用户ID统计用户购物车中的商品数量 -->
+	<select id="countUserModel" resultType="java.lang.Integer"
+		parameterType="com.yfhl.entity.ModelShopping">
+		select count(ms_id) from hs_model_shopping where
+		ms_uid=${msUid}
+	</select>
+	<!-- luans:根据购物车ID批量查询购物车信息 -->
+	<select id="queryModelShoppingById" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model_shopping where ms_id in
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		ORDER BY ms_modelbrand ASC
+	</select>
+	<!-- luans: 根据购物车ID统计查询品牌 -->
+	<select id="queryBrandByShoppingById" resultType="java.lang.String">
+		select
+
+		distinct(ms_modelbrand)
+		from hs_model_shopping where ms_id in
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<!-- luans:根据品牌名称和购物车ID查询购物车信息 -->
+	<select id="queryModelShoppingByBrand" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model_shopping where ms_modelbrand=#{brand} and ms_id in
+		<foreach item="item" index="index" collection="array" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+	<!-- luans:修改购物车数量为当前数量 (立即购买时添加购物车用到) -->
+	<update id="updateShoppingByviews" parameterType="com.yfhl.entity.ModelShopping"
+		 >
+		update
+		hs_model_shopping
+		set
+		ms_modcount=#{msModcount,jdbcType=INTEGER},
+		ms_addtime=
+		#{msAddtime,jdbcType=TIMESTAMP},
+		ms_modprice =
+		#{msModprice,jdbcType=REAL}
+		where
+		ms_modelid=#{msModelid,jdbcType=INTEGER} and
+		ms_modelname=#{msModelname,jdbcType=VARCHAR} and
+		ms_modelbrand=#{msModelbrand,jdbcType=VARCHAR} and
+		ms_modtexture
+		=#{msModtexture,jdbcType=VARCHAR} and
+		ms_modsize=#{msModsize,jdbcType=VARCHAR}
+		and
+		ms_uid=${msUid}
+	</update>
+	<!-- luans:根据购物车部分信息查询购物车全部信息 (立即购买时添加购物车用到) -->
+	<select id="queryModelShoppingByviews" parameterType="com.yfhl.entity.ModelShopping"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model_shopping
+		where
+		ms_modelid=#{msModelid,jdbcType=INTEGER}
+		and
+		ms_modelname=#{msModelname,jdbcType=VARCHAR} and
+		ms_modelbrand=#{msModelbrand,jdbcType=VARCHAR} and
+		ms_modtexture
+		=#{msModtexture,jdbcType=VARCHAR} and
+		ms_modsize=#{msModsize,jdbcType=VARCHAR}
+		and
+		ms_uid=${msUid}
+	</select>
+	<!-- luans:修改购物车数量 -->
+	<update id="updatemsModcount" parameterType="com.yfhl.entity.ModelShopping">
+		update hs_model_shopping set
+		<if test="marker_count==1">
+			ms_modcount=ms_modcount-1
+		</if>
+		<if test="marker_count==2">
+			ms_modcount=ms_modcount+1
+		</if>
+		where ms_id=#{msId,jdbcType=INTEGER}
+	</update>
+	<!-- luans: 根据用户ID查询用户购物车中的商品数量-->
+	<select id="queryModelShoppingCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+	select count(ms_id) from hs_model_shopping where ms_uid = #{userid}
+	
+	</select>
+	<!-- Chris Li：根据用户编号查询购物车中的信息 -->
+	<select id="getModelCartListByUserId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from hs_model_shopping
+		where ms_uid = #{msUid,jdbcType=INTEGER}
+	</select>
+	
+	<!-- Chirs Li : getModelShoppingCount 根据用户的编号查询用户购物车商品的数量 -->
+	<select id="getModelShoppingCount" resultType="java.lang.Integer"  parameterType="java.lang.Integer">
+		select
+		count(*)
+		from hs_model_shopping
+		where ms_uid = #{msUid,jdbcType=INTEGER}
+	</select>
+</mapper>

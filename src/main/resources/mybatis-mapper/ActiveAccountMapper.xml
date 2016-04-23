@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.ActiveAccountMapper" >
+  <resultMap id="BaseResultMap" type="com.yfhl.entity.ActiveAccount" >
+    <id column="aa_id" property="aaId" jdbcType="INTEGER" />
+    <result column="aa_name" property="aaName" jdbcType="VARCHAR" />
+    <result column="aa_pwd" property="aaPwd" jdbcType="VARCHAR" />
+    <result column="aa_activecode" property="aaActivecode" jdbcType="VARCHAR" />
+    <result column="aa_url" property="aaUrl" jdbcType="VARCHAR" />
+    <result column="aa_date" property="aaDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aa_id, aa_name, aa_pwd, aa_activecode, aa_url, aa_date
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from hs_activeaccount
+    where aa_id = #{aaId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from hs_activeaccount
+    where aa_id = #{aaId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.yfhl.entity.ActiveAccount" >
+    insert into hs_activeaccount (aa_id, aa_name, aa_pwd, 
+      aa_activecode, aa_url, aa_date
+      )
+    values (#{aaId,jdbcType=INTEGER}, #{aaName,jdbcType=VARCHAR}, #{aaPwd,jdbcType=VARCHAR}, 
+      #{aaActivecode,jdbcType=VARCHAR}, #{aaUrl,jdbcType=VARCHAR}, #{aaDate,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <!-- luans:添加激活表信息 -->
+  <insert id="insertSelective" parameterType="com.yfhl.entity.ActiveAccount" useGeneratedKeys="true" keyProperty="aaId">
+    insert into hs_activeaccount
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aaId != null" >
+        aa_id,
+      </if>
+      <if test="aaName != null" >
+        aa_name,
+      </if>
+      <if test="aaPwd != null" >
+        aa_pwd,
+      </if>
+      <if test="aaActivecode != null" >
+        aa_activecode,
+      </if>
+      <if test="aaUrl != null" >
+        aa_url,
+      </if>
+      <if test="aaDate != null" >
+        aa_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aaId != null" >
+        #{aaId,jdbcType=INTEGER},
+      </if>
+      <if test="aaName != null" >
+        #{aaName,jdbcType=VARCHAR},
+      </if>
+      <if test="aaPwd != null" >
+        #{aaPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="aaActivecode != null" >
+        #{aaActivecode,jdbcType=VARCHAR},
+      </if>
+      <if test="aaUrl != null" >
+        #{aaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="aaDate != null" >
+        #{aaDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.ActiveAccount" >
+    update hs_activeaccount
+    <set >
+      <if test="aaName != null" >
+        aa_name = #{aaName,jdbcType=VARCHAR},
+      </if>
+      <if test="aaPwd != null" >
+        aa_pwd = #{aaPwd,jdbcType=VARCHAR},
+      </if>
+      <if test="aaActivecode != null" >
+        aa_activecode = #{aaActivecode,jdbcType=VARCHAR},
+      </if>
+      <if test="aaUrl != null" >
+        aa_url = #{aaUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="aaDate != null" >
+        aa_date = #{aaDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where aa_id = #{aaId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yfhl.entity.ActiveAccount" >
+    update hs_activeaccount
+    set aa_name = #{aaName,jdbcType=VARCHAR},
+      aa_pwd = #{aaPwd,jdbcType=VARCHAR},
+      aa_activecode = #{aaActivecode,jdbcType=VARCHAR},
+      aa_url = #{aaUrl,jdbcType=VARCHAR},
+      aa_date = #{aaDate,jdbcType=TIMESTAMP}
+    where aa_id = #{aaId,jdbcType=INTEGER}
+  </update>
+  <!-- luans: 激活码验证，查询激活码实体类信息-->
+  <select id="queryActiveAccountByself"  resultMap="BaseResultMap" parameterType="com.yfhl.entity.ActiveAccount" >
+   select 
+    <include refid="Base_Column_List" />
+    from hs_activeaccount
+    where aa_id = #{aaId,jdbcType=INTEGER} and  aa_activecode=#{aaActivecode,jdbcType=VARCHAR}
+  </select>
+  <!-- luans:激活码成功后，删除激活码实体类信息 -->
+  <delete id="deleteActiveAccount" parameterType="com.yfhl.entity.ActiveAccount">
+    delete from hs_activeaccount
+    where aa_name = #{aaName,jdbcType=VARCHAR} 
+  
+  </delete>
+  
+</mapper>

@@ -1,0 +1,23 @@
+$(function(){
+	$(".quxiao_div1_div2_div2_div3_sp3").click(function(){
+		$(".motai_quxiaodingdan").css({"display":"block"})
+		$(".motai_waitao1").css({"display":"block"})
+	})
+	$(".quxiao_div1_div2_div2_div3_sp4").click(function(){
+		$(".motai_quxiaodingdan").css({"display":"block"})
+		$(".motai_waitao2").css({"display":"block"})
+	})
+	$(".motai_quxiao_a2").click(function(){
+		$(".motai_quxiaodingdan").css({"display":"none"})
+		$(".motai_waitao1").css({"display":"none"})
+	})
+	$(".motai_shanchu_a2").click(function(){
+		$(".motai_quxiaodingdan").css({"display":"none"})
+		$(".motai_waitao2").css({"display":"none"})
+	})
+	$(".xiangqing_div1_p3_a1").click(function(){
+		$(".motai_quxiaodingdan").css({"display":"block"})
+		$(".motai_waitao1").css({"display":"block"})
+		
+	})
+})

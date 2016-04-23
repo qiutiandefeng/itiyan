@@ -1,0 +1,12 @@
+.page{clear:both;height:100px;}
+/*Ò³Âë*/
+.mainpage .page-paging{position:absolute;height:25px;bottom:5px;left:3px;right:0px; }
+.page-paging2{position:absolute;height:25px;bottom:5px;left:3px;right:0px; }
+.page-paging ul{float:right}
+.page-paging ul li{float:left;margin:0 5px}
+.page-paging ul li a{display:block;padding:5px}
+.page-paging ul li a:hover{background:#000;color:#fff}
+.page-paging ul li .current{display:block;padding:5px}
+
+.page-paging ul .page_list_input .page_list_input_1{width:30px;float:left;margin-top:6px}
+.page-paging ul .page_list_btn button{width:20px;height:20px;float:left;margin-top:6px;text-align:center;line-height:20px}

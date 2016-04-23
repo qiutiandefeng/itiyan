@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yfhl.mapper.RecentMapper">
+	<resultMap id="BaseResultMap" type="com.yfhl.entity.Recent">
+		<id column="rid" property="rid" jdbcType="INTEGER" />
+		<result column="r_uid" property="rUid" jdbcType="INTEGER" />
+		<result column="r_mid" property="rMid" jdbcType="INTEGER" />
+		<result column="r_time" property="rTime" jdbcType="TIMESTAMP" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		rid, r_uid, r_mid, r_time
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from hs_recent
+		where rid = #{rid,jdbcType=INTEGER}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		hs_recent
+		where rid = #{rid,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.yfhl.entity.Recent">
+		insert into hs_recent (rid,
+		r_uid, r_mid,
+		r_time)
+		values (#{rid,jdbcType=INTEGER},
+		#{rUid,jdbcType=INTEGER},
+		#{rMid,jdbcType=INTEGER},
+		#{rTime,jdbcType=TIMESTAMP})
+	</insert>
+	<!-- luans:添加商品浏览记录 -->
+	<insert id="insertSelective" parameterType="com.yfhl.entity.Recent">
+		insert into hs_recent
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="rid != null">
+				rid,
+			</if>
+			<if test="rUid != null">
+				r_uid,
+			</if>
+			<if test="rMid != null">
+				r_mid,
+			</if>
+			<if test="rTime != null">
+				r_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="rid != null">
+				#{rid,jdbcType=INTEGER},
+			</if>
+			<if test="rUid != null">
+				#{rUid,jdbcType=INTEGER},
+			</if>
+			<if test="rMid != null">
+				#{rMid,jdbcType=INTEGER},
+			</if>
+			<if test="rTime != null">
+				#{rTime,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.yfhl.entity.Recent">
+		update hs_recent
+		<set>
+			<if test="rUid != null">
+				r_uid = #{rUid,jdbcType=INTEGER},
+			</if>
+			<if test="rMid != null">
+				r_mid = #{rMid,jdbcType=INTEGER},
+			</if>
+			<if test="rTime != null">
+				r_time = #{rTime,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where rid = #{rid,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.yfhl.entity.Recent">
+		update hs_recent
+		set r_uid = #{rUid,jdbcType=INTEGER},
+		r_mid = #{rMid,jdbcType=INTEGER},
+		r_time = #{rTime,jdbcType=TIMESTAMP}
+		where rid =
+		#{rid,jdbcType=INTEGER}
+	</update>
+	<!-- luans:根据条件查询商品浏览记录 -->
+	<select id="queryRecent" parameterType="com.yfhl.entity.Recent"
+		resultMap="BaseResultMap">
+		select r.rid rid, r.r_uid rUid, r.r_mid rMid, r.r_time rTime,m.img
+		modelImg
+		from
+		hs_recent r, hs_model m
+		WHERE r.r_mid=m.mid
+		<if test="rUid!=null and rUid!=''">
+			and r.r_uid=#{rUid,jdbcType=INTEGER}
+		</if> 
+		ORDER BY r.r_time limit 0,5
+	</select>
+	<!-- luans:修改商品浏览记录 -->
+	<update id="updateRecent" parameterType="com.yfhl.entity.Recent">
+		update hs_recent set r_time=#{rTime} where r_uid =
+		#{rUid,jdbcType=INTEGER} and
+		r_mid = #{rMid,jdbcType=INTEGER}
+
+	</update>
+
+</mapper>

@@ -1,0 +1,77 @@
+/* CSS Document */
+/*.wangz{ background:#0e97c4; width:100%; height:100%;}*/
+.banner{ width:1526px; height:337px; margin:0 auto;}
+.xinx{ width:1000px; height:142px; margin:0 auto; background:url(../images/jj.png) repeat-x bottom #ffbc09;}
+.xinx .zil{ background:url(../images/djjm_06.png) no-repeat 50px 23px; width:203px; height:135px; float:left;}
+.xinx .zil img{ padding:25px 0 0 76px;width:175px;height:115px}
+.xinx .kszl{ float:left; padding:30px 0 0 40px;}
+.xinx .kszl h2{ font-weight:normal; font-size:18px; font-family:"Microsoft Yahei","Arial"; color:#333333; line-height:30px; padding-top:10px; padding-bottom:13px;}
+.xinx .kszl font{ font-weight:normal; font-size:18px; font-family:"Microsoft Yahei","Arial"; color:#333333; padding-left:190px;}
+.xinx .kszl h4{ font-weight:normal; font-size:18px; font-family:"Microsoft Yahei","Arial"; color:#333333;}
+.main{ background:#fff; width:1000px; margin:0 auto 80px auto; padding-bottom:30px;}
+.dtb_park{ padding:50px 0 3px 0; margin:0 auto; width:956px;}
+.dtb_park font{ float:left; color:#ff0000; font-size:24px; font-family:"Microsoft Yahei","Arial"; padding:6px 0 0 20px; display:block;}
+.dtb_park h3{ float:left; color:#555; font-size:24px; font-family:"Microsoft Yahei","Arial"; padding-left:8px;}
+.xx{ margin:0 auto; width:956px;}
+.wenti{ width:690px; padding-bottom:30px; float:left;}
+.wenti .tm_park{ padding:35px 0 0 40px;}
+.wenti .tm_park h3{ background:url(../images/djjm_18.png) no-repeat left; padding:0 0 0 23px;font-family:"Microsoft Yahei","Arial"; font-size:20px;}
+.wenti .tm_park p{ font-size:14px; font-family:"Microsoft Yahei","Arial"; color:#555; line-height:24px; text-indent:24px; padding:20px 0;}
+.wenti .tm_park ul{ padding:0; margin:0;}
+.wenti .tm_park ul li{ background:url(../images/djjm_26.png) no-repeat left; width:148px; height:109px; float:left; margin:0 14px 0 0;}
+.wenti .tm_park ul li img{ padding:5px 0 0 5px;}
+.wenti .xuanx{ width:650px; padding-bottom:30px; padding-left:40px;}
+.wenti .xuanx .xx_park{ padding:25px 0 0 0;}
+.wenti .xuanx .xx_park h3{font-family:"Microsoft Yahei","Arial"; font-size:20px;}
+.wenti .xuanx .one{ padding:25px 0 25px 20px; border-bottom:1px #ddd dashed; width:615px;}
+.wenti .xuanx .one input{ float:left;}
+.wenti .xuanx .one font{ float:left;font-family:"Microsoft Yahei","Arial"; font-size:20px; padding:0 10px 0 6px; width:15px;}
+.wenti .xuanx .one p{ float:left;font-family:"Microsoft Yahei","Arial"; font-size:14px; line-height:24px; width:560px;}
+.wenti .xuanx .one ul{ padding:20px 0 0 55px; margin:0;}
+.wenti .xuanx .one ul li{ background:url(../images/djjm_30.png) no-repeat left; width:121px; height:91px; float:left; margin:0 20px 0 0;}
+.wenti .xuanx .one ul li img{ padding:3px 0 0 4px;}
+.fenye{ float:right;}
+.fenye a{font-family:"Microsoft Yahei","Arial"; font-size:14px; color:#555;line-height:28px; background:url(../images/jt_07.png) no-repeat left; padding-left:15px; margin-right:20px; display:block; float:left;}
+.fenye .xiay{font-family:"Microsoft Yahei","Arial"; font-size:14px; color:#555; background:url(../images/jt_09.png) no-repeat 55px #0f93de; padding-right:25px; padding-left:8px; color:#fff; height:28px; text-align:center;}
+.fenye a:hover{ color:#888;}
+.fenye .xiay:hover{ background:url(../images/jt_09.png) no-repeat 55px #2babf4; color:#fff;}
+.you{ margin:35px 0 0 50px; width:218px; float:left;}
+.dtk{ background:url(../images/djjm_22.png) repeat-y; width:218px;}
+.dtk .dt_park{ background:url(../images/dtk.png) no-repeat; width:218px; height:46px;}
+.dtk .dt_park h3{ font-family:"Microsoft Yahei","Arial"; font-size:20px; color:#fff; padding:14px 0 0 15px;}
+.zhum{}
+.zhum ul{ padding:22px 0 0 0;}
+.zhum ul li{ font-family:"Microsoft Yahei","Arial"; font-size:14px; color:#555; float:left; padding:0 0 0 10px;}
+.zhum ul li span{ width:13px; height:13px; display:block; background:#e83f2a; float:left; margin-right:1px; margin-top:2px;}
+.zhum ul li .lan{ width:13px; height:13px; display:block; background:#148ee4; float:left; margin-right:1px; margin-top:2px;}
+.zhum ul li .lv{ width:13px; height:13px; display:block; background:#30be48; float:left; margin-right:1px; margin-top:2px;}
+.zhum ul li .huang{ width:13px; height:13px; display:block; background:#F0AD4E; float:left; margin-right:1px; margin-top:2px;}
+.dxt h3{ font-family:"Microsoft Yahei","Arial"; font-size:16px; color:#333; padding:36px 0 5px 20px;}
+.dxt ul{ padding:0 10px;}
+.dxt ul li{ padding:5px 7px; background:#e83f2c; float:left; margin:10px 0 0 10px;font-family:"Microsoft Yahei","Arial"; font-size:12px;-moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px; color:#fff;}
+.dxt ul .yiz{ background:#148de6;}
+.dxt ul .weiz{ background:#30be48;}
+.kong{ width:180px; margin:0 auto; padding:50px 0 0 0; border-bottom:1px #ddd solid;}
+.djs img{ padding:18px 0 25px 20px;}
+.djs .time{ background:url(../images/shij_07.png) no-repeat; margin:0 0 25px 25px; width:160px; height:64px;}
+.djs .time .shijian{}
+.djs .time .shijian li{ color:#fff;font-family:"Microsoft Yahei","Arial"; font-size:22px; float:left; padding:6px 24px 0 8px;}
+.djs .time .shijian .shuz{ padding:6px 0 0 8px;}
+.djs .time .sfm{}
+.djs .time .sfm li{ color:#999;font-family:"Microsoft Yahei","Arial"; font-size:14px; float:left; padding:13px 30px 0 15px;}
+.djs .time .sfm .miao{ padding:13px 0 0 13px;}
+.jiaojuan{ padding:30px 0 0 50px;}
+.jiaojuan input{ background:url(../images/djjm_44.png) no-repeat; width:125px; height:37px; border:none; color:#fff; text-align:center; line-height:37px;font-family:"Microsoft Yahei","Arial"; font-size:18px; cursor:pointer;}
+.jiaojuan input:hover{filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity: 0.8; opacity: 0.8;}
+/*登录页面*/
+.dengl{ background:url(../images/dengl.png) repeat center #0d96c3; width:100%; height:865px;}
+.neir{ width:590px; margin:0 auto; padding-top:16%;}
+.neir .left{ width:149px; float:left; padding-right:40px; padding-top:25px;}
+.neir .right{ float:left; border-left:1px #63c2e1 solid; padding:39px 0 40px 90px; *+padding:29px 0 40px 90px;}
+.neir .right p{ display:block;}
+.neir .right p font{ float:left;font-family:"Microsoft Yahei","Arial"; font-size:14px; color:#fff; line-height:26px; padding-right:10px;}
+.neir .right p input{ float:left;font-family:"Microsoft Yahei","Arial"; font-size:14px; color:#555; width:177px; height:24px; line-height:24px; padding-left:5px; border:1px #ddd solid;-moz-border-radius:2px; -webkit-border-radius:2px; border-radius:2px;}
+.neir .right span{ display:block; padding:20px 0 0 100px; *+padding:0px 0 0 66px;}
+.neir .right span .dl{ background:url(../images/dl_06.png) no-repeat; width:83px; height:30px; padding:0 0 5px 0; cursor:pointer; border:none; margin:0 19px 0 0; color:#fff;font-family:"Microsoft Yahei","Arial";}
+.neir .right span .qux{ background:url(../images/dl_08.png) no-repeat; width:83px; height:30px; padding:0 0 5px 0; cursor:pointer; border:none; color:#fff;font-family:"Microsoft Yahei","Arial";}
+.neir .right span .dl:hover,.neir .right span .qux:hover{filter:alpha(opacity=80); -moz-opacity:0.8; -khtml-opacity: 0.8; opacity: 0.8;}

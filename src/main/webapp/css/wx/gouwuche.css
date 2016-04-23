@@ -1,0 +1,66 @@
+*{margin:0;padding:0;}
+html,body{width:100%;overflow-x: hidden;}
+
+
+.kong{margin-top:20%;font-family: "黑体";}
+.kong p{text-align: center;font-size: 0.9rem;line-height: 25px;color:#aaa}
+.kong p a{color:#00DDBD;}
+
+.cars{padding:0 10px;height:auto;box-sizing: border-box;}
+.carst{height:auto;width:100%;overflow: hidden;}
+.cars_div1{float:left;height:55px;padding-top:17px;padding-bottom:18px;background:url(../../images/wx/050.gif) bottom repeat-x;overflow-x: hidden;}
+.carst_shanchu{float:left;width:120px;height:55px;}
+.carst_shanchu button{margin-left:20px;width:100px;height:90px;border:0;text-align: center;line-height: 90px;background:#f00;font-size: 1rem;color:#fff;font-family: "黑体";}
+.cars_div1 div{float:left}
+.cars_div1_div1{height:35px;margin-right:10px}
+.cars_div1_div1 img{height:15px;margin-top:20px;}
+.cars_div1_div1_img2{display:none}
+.cars_div1_div2{height:55px;margin-right:10px;position: relative;}
+.cars_div1_div2 img{height:55px;width:55px;border-radius: 2px;}
+.cars_div1_div3{font-family: "黑体";font-size: 0.7rem;}
+.cars_div1_div3_p1{}
+.cars_div1_div3_p2{margin-top:3px;color:#AAAAAA}
+.cars_div1_div3_p2_sp2{font-family: arial;}
+
+.cars_div1 .cars_div1_div4{float:right;height:;font-family: arial;font-size: 0.8rem;}
+.cars_div1_div4 p{color:#00DEBD;text-align: right;}
+.cars_div1_div4_div1{margin-top: 5px;}
+.cars_div1_div4_div1 img{float:left;height:10px;margin-top:17px}
+
+.cars_div1_div4_div1 span{float:left;display:inline-block;height:20px;width:20px;background:#F3F3F3;text-align: center;line-height: 20px;border-radius: 50%;margin:0 5px;margin-top:12px;font-size: 0.7rem;}
+
+.carstShi .cars_div1_div1{width:15px}
+.carstShi .cars_div1_div4 p{color:#ccc}
+.carstShi .cars_div1_div4_div1_sp1{color:#ccc}
+.carstShi .cars_div1_div2_div1{width:100%;height:100%;position: absolute;top:0;left:0;background: rgba(0,0,0,0.5);}
+.carstShi .cars_div1_div2_div1 span{display:block;font-size:0.8rem;width:35px;height:20px;border-radius: 5px;margin:0 auto;border-radius: 8px;background: #000;color:#fff;line-height: 20px;text-align: center;margin-top:15px}
+
+
+.money{padding:0 10px;height:80px;margin-bottom: 20px;background:#F5F5F5;border-top:2px solid #f1f1f1;clear: both;box-sizing: border-box;}
+.money_div1{float:left;height:80px;line-height: 58px;font-family: "黑体";width:100px;}
+.money_div1_no{background:0;}
+.money_div1 img{height:15px;float:left;margin-top:22px;display:inline-block;margin-right:10px}
+.money_div1 .money_div1_img2{display:none}
+.money_div2{float:right;height:80px;}
+.money_div2 p{}
+.money_div2_p1{font-size: 1rem;margin-top:20px;text-align: right;font-family: "黑体";}
+.money_div2_p1 span{color:#00DDBD;font-family: arial;}
+.money_div2_p2{line-height: 20px;color:#999999;font-family: arial;font-size:0.7rem}
+.money_div2_p2_sp1{margin-right:7px}
+
+.fourPx{height:20px;background:;}
+
+.money_end{clear:both;width:80%;height:40px;background:#00DDBD;color:#fff;text-align: center;line-height: 40px;border-radius: 20px;margin:0 auto;margin-bottom: 20px;font-family:"黑体";font-size: 1rem;}
+.money_end span{font-family: arial;}
+
+
+
+
+
+
+
+
+
+
+
+
