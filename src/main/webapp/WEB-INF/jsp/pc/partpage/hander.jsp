@@ -41,13 +41,13 @@
 			action="<%=request.getContextPath()%>/modelController/gotoModelListPC.do"
 			method="post" name="form_condition" id="form_condition">
 			<div class="left nav_left" onclick="gotoModelPc()">
-				<img src="<%=request.getContextPath()%>/images/pc/051.gif" />
+				<img src="<%=request.getContextPath()%>/images/pc/logo.png" style="width: 192px;height: 63px;"/>
 			</div>
 			<ul class="left nav_right">
-				<li class="nav_right_li1"><a
-					href="<%=request.getContextPath()%>/modelController/gotoModelPC.do"></a></li>
-				<li class="nav_right_li2"><a
-					href="<%=request.getContextPath()%>/modelController/gotoModelListPC.do"></a>
+<!-- 				<li class="nav_right_li1"><a -->
+<%-- 					href="<%=request.getContextPath()%>/modelController/gotoModelPC.do"></a></li> --%>
+				<li class="nav_right_li1">
+					<a href="<%=request.getContextPath()%>/modelController/gotoModelListPC.do"></a>
 					<ul class="showright_nav_ulprice">
 						<li class="showright_nav_ul1_li1"><img
 							src="<%=request.getContextPath()%>/images/pc/006.gif"></li>
@@ -56,8 +56,8 @@
 								onclick="selByCategory('${category.categoryId}')">${category.title}</a></li>
 						</c:forEach>
 					</ul></li>
-				<li class="nav_right_li3"><a
-					href="<%=request.getContextPath()%>/userManage/gotoDesignerPC.do"></a></li>
+<!-- 				<li class="nav_right_li3"><a -->
+<%-- 					href="<%=request.getContextPath()%>/userManage/gotoDesignerPC.do"></a></li> --%>
 				<li class="nav_right_li4"><a
 					href="<%=request.getContextPath()%>/turncenterController/turnBottom.do?markerPage=5"></a></li>
 				<li class="search"><input class="two left" type="text"

@@ -80,7 +80,8 @@
 
 	<display-name></display-name>
 	<welcome-file-list>
-		<welcome-file>modelController/gotoModelPC.do</welcome-file>
-
+<!-- 		<welcome-file>modelController/gotoModelPC.do</welcome-file> -->
+		<!-- 直接进入商品列表 -->
+		<welcome-file>modelController/gotoModelListPC.do</welcome-file>
 	</welcome-file-list>
 </web-app>

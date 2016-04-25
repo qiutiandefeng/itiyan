@@ -48,8 +48,7 @@
 						src="<%=request.getContextPath()%>/images/pc/066.gif" />
 				</div>
 				<div class="foot_bottom">
-					<p>Copyright&copy;2008-2014 3dcreatia.com All Rights
-						Reserved爱体验网 京ICP备14036989号</p>
+					<p>Copyright&copy;北京云帆互联科技有限公司  2015-2016 All Rights Reserved.网站备案:京ICP备16006346号</p>
 				</div>
 			</div>
 		</div>
